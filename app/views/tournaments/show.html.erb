@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @tournament.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @tournament.description %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @tournament.date %>
+</p>
+
+<p>
+  <strong>Pricepool:</strong>
+  <%= @tournament.pricepool %>
+</p>
+
+<%= link_to 'Edit', edit_tournament_path(@tournament) %> |
+<%= link_to 'Back', tournaments_path %>
