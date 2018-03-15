@@ -6,6 +6,7 @@
 }
 
 body {
+  background-color: #222;
   margin: 0;
   padding: 0;
   position: relative;
@@ -14,6 +15,8 @@ body {
 
 .topnav {
   overflow: hidden;
+  padding-left: 20%;
+  padding-right: 20%;
   background-color: #000000;
 }
 
@@ -27,35 +30,26 @@ body {
   font-size: 17px;
 }
 
-.right-nav a {
+#logo {
+  font-family: Arial;
+  font-size: 22px;
   padding-left: 2%;
   padding-right: 2%;
-  color: #eadb4f;
-}
-
-.right-nav a:hover {
-  color: #fcf237;
-  background-color: #5e5e5e;
+  color: #EEE;
 }
 
 .left-nav {
-  margin-left: 80%;
-  padding-left: 3%;
+  padding-top: 0.5%;
 }
 
 .left-nav a {
-  color: #e59412;
-
+  color: grey;
+  font-family: Arial;
+  font-size: 12px;
 }
 
 .left-nav a:hover {
-  color: #ffb600;
-  background-color: #5e5e5e;
-}
-.active {
-  background-color: #383838;
-  color: #eadb4f;
-  border-radius: 2px;
+  color: #FFF;
 }
 
 .topnav .icon {
