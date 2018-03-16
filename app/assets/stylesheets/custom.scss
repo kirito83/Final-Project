@@ -16,13 +16,17 @@ body {
   margin: 0;
   padding: 0;
   position: relative;
+<<<<<<< HEAD
+=======
+  font-family: 'Mina';
+>>>>>>> C
 }
 
 .topnav {
   overflow: hidden;
-  padding-left: 20%;
+  padding-left: 15%;
   padding-right: 20%;
-  background-color: #000000;
+  background-color: #111;
 }
 
 .topnav a {
@@ -147,6 +151,7 @@ animation:rainbow 1s infinite;
 }
 
 .footer {
+<<<<<<< HEAD
   font-family: 'Mina';
    position: absolute;
    left: 0;
@@ -155,4 +160,95 @@ animation:rainbow 1s infinite;
    background-color: #707070;
    color: white;
    text-align: center;
+=======
+  position: absolute;
+  left: 0;
+  bottom: -100px;
+  width: 100%;
+  background-color: #707070;
+  color: white;
+  text-align: center;
+}
+
+.footer p {
+  color: white;
+}
+
+.landing1, .landing2, .landing5 {
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.landing3 {
+  background-image: url(background_soft.jpg);
+  background-size: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  margin: 0;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 20%;
+}
+
+.landing3-left {
+  width: 25%;
+}
+
+.landing3img {
+  width: 50%;
+}
+
+.landing1 {
+  background-image: url(contest.jpg);
+  background-size: 100%;
+}
+
+.landing2 {
+  background-image: url(game.jpg);
+  background-size: 100%;
+}
+
+.landing4 {
+  background-image: url(fight.jpg);
+  background-size: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  margin: 0;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 8%;
+}
+
+.landing4img {
+  width: 50%;
+}
+
+.landing4-right {
+  margin-left: -50%;
+}
+
+.landing5 {
+  background-image: url(background_soft.jpg);
+  background-size: 100%;
+}
+
+h1 {
+  margin: 0;
+}
+
+p {
+  color: grey;
+  margin: 0;
+}
+
+img.presentation {
+  margin-top: 2%;
+>>>>>>> C
 }
