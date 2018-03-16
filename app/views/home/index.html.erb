@@ -3,11 +3,12 @@
 	<br>
 	<p>Regroupe tes amis pour creer tes propres competitions.</p>
 	<p>Choisissez le montant de la somme mis en jeu ou bien jouez juste pour le fun !</p>
+	<br>
 	<div id="presentation">
-	<%= image_tag "courbe.png", id: 'img-presentation' %>
-	<%= image_tag "Random-turtle.gif", id: 'img-presentation2' %>
-	<%= image_tag "courbe.png", id: 'img-presentation3' %>
-</div>
+		<%= image_tag "courbe.png", id: 'img-presentation' %>
+		<%= image_tag "Random-turtle.gif", id: 'img-presentation2' %>
+		<%= image_tag "courbe.png", id: 'img-presentation3' %>
+	</div>
 </div>
 
 <div class='landing2'>
@@ -44,8 +45,6 @@
 </div>
 
 <div class='landing5'>
-
-</div>
 	<div class='landing3-left'>
 		<h1>SHOP</h1>
 		<br>
@@ -57,19 +56,19 @@
 </div>
 
 <script type="text/javascript">
-var duration = 2700;
-var duration2 = 2200;
-var duration3 = 3400;
+	var duration = 2700;
+	var duration2 = 2200;
+	var duration3 = 3400;
 
-function bannerMoveDown(){
-    $("#img-presentation").animate({top:'-=6px'}, duration, 'swing');
-    $("#img-presentation3").animate({top:'-=8px'}, duration3, 'swing');
-    $("#img-presentation2").animate({top:'-=3px'}, duration2, 'swing', bannerMoveUp);
-}
-function bannerMoveUp(){
-    $("#img-presentation").animate({top:'+=6px'}, duration, 'swing');
-    $("#img-presentation3").animate({top:'+=8px'}, duration3, 'swing');
-    $("#img-presentation2").animate({top:'+=3px'}, duration2, 'swing', bannerMoveDown);
-}
-bannerMoveUp();
+	function bannerMoveDown(){
+		$("#img-presentation").animate({top:'-=6px'}, duration, 'swing');
+		$("#img-presentation3").animate({top:'-=8px'}, duration3, 'swing');
+		$("#img-presentation2").animate({top:'-=3px'}, duration2, 'swing', bannerMoveUp);
+	}
+	function bannerMoveUp(){
+		$("#img-presentation").animate({top:'+=6px'}, duration, 'swing');
+		$("#img-presentation3").animate({top:'+=8px'}, duration3, 'swing');
+		$("#img-presentation2").animate({top:'+=3px'}, duration2, 'swing', bannerMoveDown);
+	}
+	bannerMoveUp();
 </script>
