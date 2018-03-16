@@ -57,19 +57,19 @@
 </div>
 
 <script type="text/javascript">
-var duration = 3500;
-var duration2 = 2000;
-var duration3 = 2500;
+var duration = 2700;
+var duration2 = 2200;
+var duration3 = 3400;
 
 function bannerMoveDown(){
-    $("#img-presentation").animate({top:'-=3px'}, duration, 'linear');
-    $("#img-presentation3").animate({top:'-=4px'}, duration3, 'linear');
-    $("#img-presentation2").animate({top:'-=2px'}, duration2, 'linear', bannerMoveUp);
+    $("#img-presentation").animate({top:'-=6px'}, duration, 'swing');
+    $("#img-presentation3").animate({top:'-=8px'}, duration3, 'swing');
+    $("#img-presentation2").animate({top:'-=3px'}, duration2, 'swing', bannerMoveUp);
 }
 function bannerMoveUp(){
-    $("#img-presentation").animate({top:'+=3px'}, duration, 'linear');
-    $("#img-presentation3").animate({top:'+=4px'}, duration3, 'linear');
-    $("#img-presentation2").animate({top:'+=2px'}, duration2, 'linear', bannerMoveDown);
+    $("#img-presentation").animate({top:'+=6px'}, duration, 'swing');
+    $("#img-presentation3").animate({top:'+=8px'}, duration3, 'swing');
+    $("#img-presentation2").animate({top:'+=3px'}, duration2, 'swing', bannerMoveDown);
 }
 bannerMoveUp();
 </script>
