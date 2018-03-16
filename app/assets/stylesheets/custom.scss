@@ -1,16 +1,21 @@
 @font-face {
   font-family: 'Mina';
-  src: asset-url('fonts/Mina-Regular.ttf') format("truetype");
+  src: font-url('Mina-Regular.ttf') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Matchmaker';
+  src: font-url('Matchmaker.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 body {
   background-color: #222;
   margin: 0;
   padding: 0;
   position: relative;
-    font-family: 'Mina';
 }
 
 .topnav {
@@ -21,7 +26,6 @@ body {
 }
 
 .topnav a {
-  font-family: 'Mina';
   float: left;
   display: block;
   text-align: center;
@@ -31,11 +35,75 @@ body {
 }
 
 #logo {
-  font-family: Arial;
-  font-size: 22px;
+  font-family: 'Matchmaker';
+  font-size: 26px;
   padding-left: 2%;
   padding-right: 2%;
   color: #EEE;
+}
+
+#logo:hover {
+-webkit-animation:rainbow 1s infinite;
+-ms-animation:rainbow 1s infinite;
+-o-animation:rainbow 1s infinite;
+animation:rainbow 1s infinite;
+
+@-webkit-keyframes rainbow {
+0% {color: #ff0000;}
+10% {color: #ff8000;}
+20% {color: #ffff00;}
+30% {color: #80ff00;}
+40% {color: #00ff00;}
+50% {color: #00ff80;}
+60% {color: #00ffff;}
+70% {color: #0080ff;}
+80% {color: #0000ff;}
+90% {color: #8000ff;}
+100% {color: #ff0080;}
+}
+
+@-ms-keyframes rainbow {
+0% {color: #ff0000;}
+10% {color: #ff8000;}
+20% {color: #ffff00;}
+30% {color: #80ff00;}
+40% {color: #00ff00;}
+50% {color: #00ff80;}
+60% {color: #00ffff;}
+70% {color: #0080ff;}
+80% {color: #0000ff;}
+90% {color: #8000ff;}
+100% {color: #ff0080;}
+}
+
+@-o-keyframes rainbow {
+0% {color: #ff0000;}
+10% {color: #ff8000;}
+20% {color: #ffff00;}
+30% {color: #80ff00;}
+40% {color: #00ff00;}
+50% {color: #00ff80;}
+60% {color: #00ffff;}
+70% {color: #0080ff;}
+80% {color: #0000ff;}
+90% {color: #8000ff;}
+100% {color: #ff0080;}
+}
+
+@keyframes rainbow {
+0% {color: #ff0000;}
+10% {color: #ff8000;}
+20% {color: #ffff00;}
+30% {color: #80ff00;}
+40% {color: #00ff00;}
+50% {color: #00ff80;}
+60% {color: #00ffff;}
+70% {color: #0080ff;}
+80% {color: #0000ff;}
+90% {color: #8000ff;}
+100% {color: #ff0080;}
+}
+
 }
 
 .left-nav {
@@ -44,7 +112,7 @@ body {
 
 .left-nav a {
   color: grey;
-  font-family: Arial;
+  font-family: 'Mina';
   font-size: 12px;
 }
 
@@ -79,6 +147,7 @@ body {
 }
 
 .footer {
+  font-family: 'Mina';
    position: absolute;
    left: 0;
    bottom: 0;
