@@ -3,7 +3,11 @@
 	<br>
 	<p>Regroupe tes amis pour creer tes propres competitions.</p>
 	<p>Choisissez le montant de la somme mis en jeu ou bien jouez juste pour le fun !</p>
-	<%= image_tag "Random-turtle.gif", class: 'presentation' %>
+	<div id="presentation">
+	<%= image_tag "courbe.png", id: 'img-presentation' %>
+	<%= image_tag "Random-turtle.gif", id: 'img-presentation2' %>
+	<%= image_tag "courbe.png", id: 'img-presentation3' %>
+</div>
 </div>
 
 <div class='landing2'>
@@ -42,3 +46,20 @@
 <div class='landing5'>
 
 </div>
+<script type="text/javascript">
+var duration = 3500;
+var duration2 = 2000;
+var duration3 = 2500;
+
+function bannerMoveDown(){
+    $("#img-presentation").animate({top:'-=3px'}, duration, 'linear');
+    $("#img-presentation3").animate({top:'-=4px'}, duration3, 'linear');
+    $("#img-presentation2").animate({top:'-=2px'}, duration2, 'linear', bannerMoveUp);
+}
+function bannerMoveUp(){
+    $("#img-presentation").animate({top:'+=3px'}, duration, 'linear');
+    $("#img-presentation3").animate({top:'+=4px'}, duration3, 'linear');
+    $("#img-presentation2").animate({top:'+=2px'}, duration2, 'linear', bannerMoveDown);
+}
+bannerMoveUp();
+</script>

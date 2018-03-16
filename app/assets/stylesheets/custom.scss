@@ -201,6 +201,7 @@ animation:rainbow 1s infinite;
 .landing1 {
   background-image: url(contest.jpg);
   background-size: 100%;
+  padding-bottom: 50%;
 }
 
 .landing2 {
@@ -243,6 +244,33 @@ p {
   margin: 0;
 }
 
-img.presentation {
-  margin-top: 2%;
+#presentation {
+  width: 100%;
+}
+
+#img-presentation {
+z-index: 3;
+  position: absolute;
+  width: 34%;
+  margin-left: -45%;
+    padding-top: 19%;
+}
+
+#img-presentation2 {
+z-index: 2;
+  position: absolute;
+  width: 25%;
+  padding-top: 26%;
+  padding-left: 15%;
+}
+
+#img-presentation3 {
+z-index: 1;
+  position: absolute;
+  width: 60%;
+  margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+
 }
