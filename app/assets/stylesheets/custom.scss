@@ -11,6 +11,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 body {
   background-color: #222;
   margin: 0;
@@ -125,6 +126,45 @@ animation:rainbow 1s infinite;
   display: none;
 }
 
+.end-nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.end-nav .sign_in {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #111;
+  color: white;
+  margin-left: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid grey;
+  border-radius: 1px;
+  border-color: grey;
+}
+
+.end-nav .sign_in:hover {
+  background-color: grey;
+}
+
+.end-nav .sign_up {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #f06;
+  color: white;
+  margin-left: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 1px;
+}
+
+.end-nav .sign_up:hover {
+  background-color: #d06;
+}
+
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
@@ -169,7 +209,7 @@ animation:rainbow 1s infinite;
   color: white;
 }
 
-.landing1, .landing2, .landing5 {
+.landing1, .landing2, .landing3, .landing5 {
   color: white;
   text-align: center;
   margin: 0;
@@ -231,8 +271,16 @@ animation:rainbow 1s infinite;
 }
 
 .landing5 {
-  background-image: url(background_soft.jpg);
+  background-image: url(gold.jpg);
   background-size: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  margin: 0;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 20%;
 }
 
 h1 {
@@ -240,7 +288,7 @@ h1 {
 }
 
 p {
-  color: grey;
+  color: orange;
   margin: 0;
 }
 

@@ -1,10 +1,14 @@
 <div class="topnav" id="myTopnav">
   <div class="right-nav">
-    <a id='logo' href="#home" class="active"><b>EASE</b></a>
+    <a id='logo' href="/" class="active"><b>EASE</b></a>
   </div>
   <div class="left-nav">
     <a href="#news"><b>NEWS</b></a>
     <a href="#contact"><b>CONTACT</b></a>
     <a href="#about"><b>ABOUT</b></a>
+  </div>
+  <div class='end-nav'>
+    <%= link_to "INSCRIPTION", new_user_registration_path, class: 'sign_up' %>
+    <%= link_to "CONNEXION", new_user_session_path, class: 'sign_in' %>
   </div>
 </div>
