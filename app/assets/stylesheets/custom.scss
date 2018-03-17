@@ -1,3 +1,6 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 @font-face {
   font-family: 'Mina';
   src: font-url('Mina-Regular.ttf') format("truetype");
@@ -113,6 +116,9 @@ animation:rainbow 1s infinite;
 }
 
 .left-nav a {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   color: grey;
   font-family: 'Mina';
   font-size: 12px;
@@ -126,30 +132,7 @@ animation:rainbow 1s infinite;
   display: none;
 }
 
-.end-nav {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.end-nav .sign_in {
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  background-color: #111;
-  color: white;
-  margin-left: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  border: 1px solid grey;
-  border-radius: 1px;
-  border-color: grey;
-}
-
-.end-nav .sign_in:hover {
-  background-color: grey;
-}
-
-.end-nav .sign_up {
+.sign_up {
   cursor: pointer;
   font-size: 14px;
   font-weight: bold;
@@ -158,11 +141,44 @@ animation:rainbow 1s infinite;
   margin-left: 10px;
   padding-left: 20px;
   padding-right: 20px;
-  border-radius: 1px;
+  border-radius: 2px;
+}
+.sign_up:hover {
+  background-color: #d06;
 }
 
-.end-nav .sign_up:hover {
-  background-color: #d06;
+.end-nav {
+  display: flex;
+  justify-content: flex-end;
+  .sign_in {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #111;
+    color: white;
+    margin-left: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 1px solid grey;
+    border-radius: 2px;
+    border-color: grey;
+  }
+  .sign_in:hover {
+    background-color: grey;
+  }
+  .dropdown-toggle {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #111;
+    color: white;
+    margin-left: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 1px solid white;
+    border-radius: 2px;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -361,4 +377,32 @@ p {
 .link {
   color: black;
   text-decoration: none;
+}
+
+.new_tournament {
+  padding-top: 10%;
+  padding-bottom: 20%;
+  background-image: url(tournament.jpg);
+  background-size: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  h1 {
+    text-align: center;
+    color: white;
+  }
+  .field {
+    .label {
+      font-weight: bold;
+      color: white;
+      font-size: 12px;
+    }
+  }
+}
+
+.form_new_t {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

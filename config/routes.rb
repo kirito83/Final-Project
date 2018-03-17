@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   devise_scope :user do
   	get '/sign_up', to: 'devise/registrations#new'
   	get '/sign_in', to: 'devise/sessions#new'
+  	post '/sign_in', to: 'devise/sessions#create'
   end
 end

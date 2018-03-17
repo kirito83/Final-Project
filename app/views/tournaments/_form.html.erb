@@ -1,37 +1,39 @@
-<%= form_with(model: tournament, local: true) do |form| %>
+<div class='form_new_t'>
+  <%= form_with(model: tournament, local: true) do |form| %>
   <% if tournament.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(tournament.errors.count, "error") %> prohibited this tournament from being saved:</h2>
+  <div id="error_explanation">
+    <h2><%= pluralize(tournament.errors.count, "error") %> prohibited this tournament from being saved:</h2>
 
-      <ul>
+    <ul>
       <% tournament.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label :title, class: 'label' %><br>
     <%= form.text_field :title, id: :tournament_title %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
+    <%= form.label :description, class: 'label' %><br>
     <%= form.text_area :description, id: :tournament_description %>
   </div>
 
   <div class="field">
-    <%= form.label :date %>
+    <%= form.label :date, class: 'label' %><br>
     <%= form.datetime_select :date, id: :tournament_date %>
   </div>
 
   <div class="field">
-    <%= form.label :pricepool %>
+    <%= form.label :pricepool, class: 'label' %><br>
     <%= form.number_field :pricepool, id: :tournament_pricepool %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
-<% end %>
+  <% end %>
+</div>
