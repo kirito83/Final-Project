@@ -24,9 +24,8 @@ body {
 }
 
 .topnav {
-  overflow: hidden;
-  padding-left: 15%;
-  padding-right: 20%;
+  padding-left: 4%;
+  padding-right: 4%;
   background-color: #111;
 }
 
@@ -48,65 +47,65 @@ body {
 }
 
 #logo:hover {
--webkit-animation:rainbow 1s infinite;
--ms-animation:rainbow 1s infinite;
--o-animation:rainbow 1s infinite;
-animation:rainbow 1s infinite;
+-webkit-animation:rainbow 1.5s infinite;
+-ms-animation:rainbow 1.5s infinite;
+-o-animation:rainbow 1.5s infinite;
+animation:rainbow 1.5s infinite;
 
 @-webkit-keyframes rainbow {
-0% {color: #ff0000;}
-10% {color: #ff8000;}
-20% {color: #ffff00;}
-30% {color: #80ff00;}
-40% {color: #00ff00;}
-50% {color: #00ff80;}
-60% {color: #00ffff;}
-70% {color: #0080ff;}
-80% {color: #0000ff;}
-90% {color: #8000ff;}
-100% {color: #ff0080;}
+0% {color: #ff4c4c;}
+10% {color: #ff4ca2;}
+20% {color: #fc4cff;}
+30% {color: #9f4cff;}
+40% {color: #4c5eff;}
+50% {color: #4caeff;}
+60% {color: #4cfff3;}
+70% {color: #4cff8a;}
+80% {color: #5eff4c;}
+90% {color: #9fff4c;}
+100% {color: #ffff4c;}
 }
 
 @-ms-keyframes rainbow {
-0% {color: #ff0000;}
-10% {color: #ff8000;}
-20% {color: #ffff00;}
-30% {color: #80ff00;}
-40% {color: #00ff00;}
-50% {color: #00ff80;}
-60% {color: #00ffff;}
-70% {color: #0080ff;}
-80% {color: #0000ff;}
-90% {color: #8000ff;}
-100% {color: #ff0080;}
+0% {color: #ff4c4c;}
+10% {color: #ff4ca2;}
+20% {color: #fc4cff;}
+30% {color: #9f4cff;}
+40% {color: #4c5eff;}
+50% {color: #4caeff;}
+60% {color: #4cfff3;}
+70% {color: #4cff8a;}
+80% {color: #5eff4c;}
+90% {color: #9fff4c;}
+100% {color: #ffff4c;}
 }
 
 @-o-keyframes rainbow {
-0% {color: #ff0000;}
-10% {color: #ff8000;}
-20% {color: #ffff00;}
-30% {color: #80ff00;}
-40% {color: #00ff00;}
-50% {color: #00ff80;}
-60% {color: #00ffff;}
-70% {color: #0080ff;}
-80% {color: #0000ff;}
-90% {color: #8000ff;}
-100% {color: #ff0080;}
+0% {color: #ff4c4c;}
+10% {color: #ff4ca2;}
+20% {color: #fc4cff;}
+30% {color: #9f4cff;}
+40% {color: #4c5eff;}
+50% {color: #4caeff;}
+60% {color: #4cfff3;}
+70% {color: #4cff8a;}
+80% {color: #5eff4c;}
+90% {color: #9fff4c;}
+100% {color: #ffff4c;}
 }
 
 @keyframes rainbow {
-0% {color: #ff0000;}
-10% {color: #ff8000;}
-20% {color: #ffff00;}
-30% {color: #80ff00;}
-40% {color: #00ff00;}
-50% {color: #00ff80;}
-60% {color: #00ffff;}
-70% {color: #0080ff;}
-80% {color: #0000ff;}
-90% {color: #8000ff;}
-100% {color: #ff0080;}
+0% {color: #ff4c4c;}
+10% {color: #ff4ca2;}
+20% {color: #fc4cff;}
+30% {color: #9f4cff;}
+40% {color: #4c5eff;}
+50% {color: #4caeff;}
+60% {color: #4cfff3;}
+70% {color: #4cff8a;}
+80% {color: #5eff4c;}
+90% {color: #9fff4c;}
+100% {color: #ffff4c;}
 }
 
 }
@@ -132,39 +131,37 @@ animation:rainbow 1s infinite;
   display: none;
 }
 
-.sign_up {
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  background-color: #f06;
-  color: white;
-  margin-left: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-radius: 2px;
-}
-.sign_up:hover {
-  background-color: #d06;
-}
-
 .end-nav {
   display: flex;
   justify-content: flex-end;
   .sign_in {
     cursor: pointer;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
     background-color: #111;
     color: white;
     margin-left: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 1% 2%;
     border: 1px solid grey;
-    border-radius: 2px;
-    border-color: grey;
+    border-radius: 3px;
   }
   .sign_in:hover {
-    background-color: grey;
+    background-color: #bfbfbf;
+    color: #f9d000;
+  }
+  .sign_up {
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: #f06;
+    color: white;
+    margin-left: 10px;
+    padding: 1% 2%;
+    border-radius: 3px;
+  }
+  .sign_up:hover {
+    background-color: #ff0087;
+    color: #f9d000;
   }
   .dropdown-toggle {
     text-decoration: none;
@@ -258,6 +255,7 @@ animation:rainbow 1s infinite;
   background-image: url(contest.jpg);
   background-size: 100%;
   padding-bottom: 50%;
+  z-index: 1;
 }
 
 .landing2 {
@@ -405,4 +403,8 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+li .divider {
+  width: 100%;
 }
