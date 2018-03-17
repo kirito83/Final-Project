@@ -26,3 +26,23 @@
     <% end %>
   </div>
 </div>
+<script type="text/javascript">
+  jQuery("document").ready(function($){
+
+  var nav = $('.topnav');
+
+$(".topnav").hide();
+
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 400) {
+      nav.addClass("f-nav");
+      $(".topnav").show();
+    } 
+    else {
+      nav.removeClass("f-nav");
+      $(".topnav").hide();
+    }
+  });
+
+});
+</script>

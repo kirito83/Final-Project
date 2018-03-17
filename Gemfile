@@ -4,6 +4,7 @@ gem "paperclip", "~> 5.2.1"
 gem 'stripe'
 gem 'mailjet'
 gem 'devise'
+gem 'figaro'
 gem 'rails',        '5.1.2'
 gem 'puma',         '3.9.1'
 gem 'sass-rails',   '5.0.6'
@@ -14,6 +15,7 @@ gem 'turbolinks',   '5.0.1'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jbuilder',     '2.7.0'
 gem 'autoprefixer-rails'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
