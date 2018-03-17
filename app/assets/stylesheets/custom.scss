@@ -282,7 +282,7 @@ animation:rainbow 1s infinite;
   padding-left: 20%;
 }
 
-h1 {
+.landing h1 {
   margin: 0;
 }
 
@@ -296,15 +296,15 @@ p {
 }
 
 #img-presentation {
-z-index: 3;
+  z-index: 3;
   position: absolute;
   width: 34%;
   margin-left: -45%;
-    padding-top: 17%;
+  padding-top: 17%;
 }
 
 #img-presentation2 {
-z-index: 2;
+  z-index: 2;
   position: absolute;
   width: 25%;
   padding-top: 19%;
@@ -312,12 +312,53 @@ z-index: 2;
 }
 
 #img-presentation3 {
-z-index: 1;
+  z-index: 1;
   position: absolute;
   width: 60%;
   margin-left: auto;
-margin-right: auto;
-left: 0;
-right: 0;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
 
+.signup {
+  padding-top: 18%;
+  padding-bottom: 18%;
+  background-image: url(signup.jpg);
+  background-size: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  h1 {
+    text-align: center;
+    color: black;
+  }
+  .actions {
+    display: flex;
+    justify-content: center;
+    .btn {
+      background-color: #f06;
+      width: 100%;
+      height: auto;
+      border-color: #d06;
+      border-radius: 2px;  
+      color: white;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+  .field {
+    .label {
+      font-weight: bold;
+      color: black;
+    }
+  }
+}
+
+.link {
+  color: black;
+  text-decoration: none;
 }
