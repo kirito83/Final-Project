@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180317204419) do
+ActiveRecord::Schema.define(version: 20180318192639) do
 
   create_table "matches", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 20180317204419) do
     t.datetime "updated_at", null: false
     t.string "provider"
     t.string "uid"
+    t.string "username"
+    t.string "street"
+    t.string "city"
+    t.string "country"
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.integer "photo_file_size"
+    t.datetime "photo_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem "paperclip", "~> 5.2.1"
+gem "paperclip", "~> 6.0.0"
+gem 'aws-sdk'
 gem 'stripe'
 gem 'mailjet'
 gem 'devise'

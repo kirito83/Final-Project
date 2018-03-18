@@ -1,0 +1,8 @@
+<%= image_tag current_user.photo unless current_user.photo.nil? %>
+
+<%= current_user.email %>
+
+<div class="container">
+	<%= link_to 'Editer', edit_user_registration_path %>
+</div>
+
