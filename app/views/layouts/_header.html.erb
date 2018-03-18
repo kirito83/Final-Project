@@ -4,7 +4,8 @@
   </div>
   <div class="left-nav">
     <% if signed_in? %>
-    <%= link_to 'CREATION TOURNOI', new_tournament_path, class: 'sign_up' %>
+    <%= link_to 'LISTE DES TOURNOIS', '/tournaments' %>
+    <%= link_to 'CREATION TOURNOI', new_tournament_path %>
     <% end %>
     <a href="#news"><b>NEWS</b></a>
     <a href="#contact"><b>CONTACT</b></a>

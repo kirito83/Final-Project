@@ -1,6 +1,9 @@
-<h1>Editing Tournament</h1>
+<div class='new_tournament'>
+	<h1>Edition tournoi</h1>
 
-<%= render 'form', tournament: @tournament %>
+	<br>
 
-<%= link_to 'Show', @tournament %> |
-<%= link_to 'Back', tournaments_path %>
+	<%= render 'form', tournament: @tournament %>
+
+	<%= link_to 'Retour', tournaments_path %>
+</div>

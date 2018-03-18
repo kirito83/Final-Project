@@ -133,49 +133,55 @@ animation:rainbow 1.5s infinite;
 .end-nav {
   display: flex;
   justify-content: flex-end;
-  .sign_in {
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: bold;
-    background-color: #111;
-    color: white;
-    margin-left: 10px;
-    padding: 1% 2%;
-    border: 1px solid grey;
-    border-radius: 3px;
-  }
-  .sign_in:hover {
-    background-color: #bfbfbf;
-    color: #f9d000;
-  }
-  .sign_up {
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: bold;
-    background-color: #f06;
-    color: white;
-    margin-left: 10px;
-    padding: 1% 2%;
-    border-radius: 3px;
-  }
-  .sign_up:hover {
-    background-color: #ff0087;
-    color: #f9d000;
-  }
-  .dropdown-toggle {
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    background-color: #111;
-    color: white;
-    margin-left: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border: 1px solid white;
-    border-radius: 2px;
-  }
 }
+
+.sign_in {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+  background-color: #111;
+  color: white;
+  margin-left: 10px;
+  padding: 1% 2%;
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+
+.sign_in:hover {
+  background-color: #bfbfbf;
+  color: #f9d000;
+}
+
+.sign_up {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+  background-color: #f06;
+  color: white;
+  margin-left: 10px;
+  padding: 1% 2%;
+  border-radius: 3px;
+}
+  
+.sign_up:hover {
+  background-color: #ff0087;
+  color: #f9d000;
+}
+
+.dropdown-toggle {
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #111;
+  color: white;
+  margin-left: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid white;
+  border-radius: 2px;
+}
+
 
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {display: none;}
@@ -348,27 +354,30 @@ p {
     text-align: center;
     color: black;
   }
-  .actions {
-    display: flex;
-    justify-content: center;
-    .btn {
-      background-color: #f06;
-      width: 100%;
-      height: auto;
-      border-color: #d06;
-      border-radius: 2px;  
-      color: white;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      font-size: 16px;
-      font-weight: bold;
-    }
-  }
-  .field {
-    .label {
-      font-weight: bold;
-      color: black;
-    }
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-submit {
+  background-color: #f06;
+  width: 100%;
+  height: auto;
+  border-color: #d06;
+  border-radius: 2px;  
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.field {
+  .label {
+    font-weight: bold;
+    color: black;
   }
 }
 
@@ -386,16 +395,18 @@ p {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  h1 {
-    text-align: center;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+}
+
+.field {
+  .label {
+    font-weight: bold;
     color: white;
-  }
-  .field {
-    .label {
-      font-weight: bold;
-      color: white;
-      font-size: 12px;
-    }
+    font-size: 12px;
   }
 }
 
@@ -591,4 +602,24 @@ animation:rainbow 1.5s infinite;
     display: block;
     text-align: left;
   }
+}
+
+.tournaments {
+  background-image: url(contest.jpg);
+  background-size: 100%;
+  padding-bottom: 50%;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+th {
+  color: white;
+  font-size: 16px;
+  text-align: center;
+}
+
+td {
+  color: white;
+  font-size: 14px;
+  text-align: center;
 }

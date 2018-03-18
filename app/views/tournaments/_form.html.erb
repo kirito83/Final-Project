@@ -13,12 +13,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title, class: 'label' %><br>
+    <%= form.label 'Titre', class: 'label' %><br>
     <%= form.text_field :title, id: :tournament_title %>
   </div>
 
   <div class="field">
-    <%= form.label :description, class: 'label' %><br>
+    <%= form.label 'Déscription', class: 'label' %><br>
     <%= form.text_area :description, id: :tournament_description %>
   </div>
 
@@ -28,9 +28,11 @@
   </div>
 
   <div class="field">
-    <%= form.label :pricepool, class: 'label' %><br>
+    <%= form.label 'Prix', class: 'label' %><br>
     <%= form.number_field :pricepool, id: :tournament_pricepool %>
   </div>
+
+  <br>
 
   <div class="actions">
     <%= form.submit %>

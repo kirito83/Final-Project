@@ -1,24 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div class='new_tournament'>
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @tournament.title %>
-</p>
+	<h1><%= @tournament.title %></h1>
 
-<p>
-  <strong>Description:</strong>
-  <%= @tournament.description %>
-</p>
+	<br><br>
 
-<p>
-  <strong>Date:</strong>
-  <%= @tournament.date %>
-</p>
+	<p><%= @tournament.description %></p>
 
-<p>
-  <strong>Pricepool:</strong>
-  <%= @tournament.pricepool %>
-</p>
+	<p><%= @tournament.date %></p>
 
-<%= link_to 'Edit', edit_tournament_path(@tournament) %> |
-<%= link_to 'Back', tournaments_path %>
+	<p>
+		<strong>Prix:</strong>
+		<%= @tournament.pricepool %>
+	</p>
+
+	<br>
+
+	<%= link_to 'Editer', edit_tournament_path(@tournament) %>
+	<%= link_to 'Retour', tournaments_path %>
+</div>

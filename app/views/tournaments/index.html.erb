@@ -1,33 +1,39 @@
-<p id="notice"><%= notice %></p>
+<div class='tournaments'>
+  <p id="notice"><%= notice %></p>
 
-<h1>Tournaments</h1>
+  <br>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Date</th>
-      <th>Pricepool</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1>Liste des tournois</h1>
 
-  <tbody>
-    <% @tournaments.each do |tournament| %>
+  <br><br><br>
+
+  <table class='table'>
+    <thead>
+      <tr>
+        <th scope='col'>Titre</th>
+        <th scope='col'>Déscription</th>
+        <th scope='col'>Date</th>
+        <th scope='col'>Prix</th>
+        <th colspan="3">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @tournaments.each do |tournament| %>
       <tr>
         <td><%= tournament.title %></td>
         <td><%= tournament.description %></td>
         <td><%= tournament.date %></td>
         <td><%= tournament.pricepool %></td>
-        <td><%= link_to 'Show', tournament %></td>
-        <td><%= link_to 'Edit', edit_tournament_path(tournament) %></td>
-        <td><%= link_to 'Destroy', tournament, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Voir', tournament, class: 'btn btn-info'  %></td>
+        <td><%= link_to 'Editer', edit_tournament_path(tournament), class: 'btn btn-primary'  %></td>
+        <td><%= link_to 'Supprimer', tournament, method: :delete, data: { confirm: 'Etes vous sûr ?' }, class: 'btn btn-danger' %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% end %>
+    </tbody>
+  </table>
 
-<br>
+  <br>
 
-<%= link_to 'New Tournament', new_tournament_path %>
+  <%= link_to 'Nouveau Tournoi', new_tournament_path, class: 'btn btn-submit' %>
+</div>
