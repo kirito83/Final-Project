@@ -2,25 +2,26 @@
 
 class Users::PasswordsController < Devise::PasswordsController
   # GET /resource/password/new
-  # def new
-  #   super
-  # end
+  # GET /resource/sign_up
+   #def new
+     #super
+   #end
 
-  # POST /resource/password
-  # def create
-  #   super
-  # end
+  # POST /resource
+   #def create
+     #super
+   #end
 
-  # GET /resource/password/edit?reset_password_token=abcdef
-  # def edit
-  #   super
-  # end
+  # GET /resource/edit
+  # PUT /resource
+   #def update
+     #super
+   #end
 
-  # PUT /resource/password
-  # def update
-  #   super
-  # end
-
+  # DELETE /resource
+   #def edit
+     #super
+   #end
   # protected
 
   # def after_resetting_password_path_for(resource)

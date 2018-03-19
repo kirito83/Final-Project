@@ -342,6 +342,7 @@ p {
 }
 
 .signup {
+  width: 100%;
   padding-top: 18%;
   padding-bottom: 18%;
   background-image: url(signup.jpg);
@@ -622,4 +623,26 @@ td {
   color: white;
   font-size: 14px;
   text-align: center;
+}
+
+.alert {
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  padding: 1% 0;
+  margin: 0;
+  text-align: center;
+  border-radius: 0;
+  background-image: radial-gradient(ellipse at center, #87c3ff, #1990ff);
+}
+
+ .fade {
+    opacity: 0;
+    -webkit-transition: opacity 0.15s linear;
+    -moz-transition: opacity 0.15s linear;
+    -o-transition: opacity 0.15s linear;
+    transition: opacity 0.15s linear;
+}
+.fade.in {
+    opacity: 1;
 }
