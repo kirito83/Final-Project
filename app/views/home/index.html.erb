@@ -20,16 +20,16 @@
 					<ul class="dropdown-menu">
 						<li><%= link_to "Profil", show_path %></li>
 						<li class="divider">|</li>
-						<li> <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %> </li>
+						<li> <%= link_to "Déconnexion", '/sign_out', method: :delete%> </li>
 					</ul>
 				</li>
 				<% else %>
-				<%= link_to "INSCRIPTION", '/sign_up', class: 'sign_up' %>
-				<%= link_to "CONNEXION", '/sign_in', class: 'sign_in' %>
+				<%= link_to "INSCRIPTION", new_user_registration_path, class: 'sign_up' %>
+				<%= link_to "CONNEXION", new_user_session_path, class: 'sign_in' %>
 				<% end %>
 			</div>
 		</div>
-		<%= link_to "INSCRIPTION", '/sign_up', class: 'sign_up' %>
+		<%= link_to "INSCRIPTION", new_user_registration_path, class: 'sign_up' %>
 		<%= link_to "CONNEXION AVEC FACEBOOK", user_facebook_omniauth_authorize_path , class: 'sign_in' %>
 		<h1>Cree tes propres competitions !</h1>
 		<br>
