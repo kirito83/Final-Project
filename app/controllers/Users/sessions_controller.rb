@@ -18,9 +18,7 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
   def show
-    if signed_in? && current_user
-      @user = current_user
-    end
+    
   end
 
   # protected
