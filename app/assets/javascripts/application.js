@@ -16,3 +16,29 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require_self
+
+function main() {
+	$('.infos').hide();
+	$('.participants').hide();
+	$('.btn-bracket').on('click', function() {
+		$(this).toggleClass('active');
+		$('.infos').hide();
+		$('.participants').hide();
+		$('.bracket').slideToggle(1000);
+	});
+	$('.btn-infos').on('click', function() {
+		$(this).toggleClass('active');
+		$('.bracket').hide();
+		$('.participants').hide();
+		$('.infos').slideToggle(1000);
+	});
+	$('.btn-participants').on('click', function() {
+		$(this).toggleClass('active');
+		$('.presenation').hide();
+		$('.infos').hide();
+		$('.participants').slideToggle(1000);
+	});
+}
+
+$(document).ready(main);

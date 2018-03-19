@@ -1,5 +1,8 @@
 class User < ApplicationRecord
   attr_accessor :photo
+  
+  has_and_belongs_to_many :tournois, class_name: 'Tournament'
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
