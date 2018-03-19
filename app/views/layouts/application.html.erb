@@ -4,7 +4,7 @@
 <body>
   <%= render 'layouts/header' %>
   <% flash.each do |message_type, message| %>
-  <div id='myAlert' class="alert fade">
+  <div id='myAlert' class="alert alert-<%= message_type %> fade">
     <%= message %>
   </div>
   <% end %>

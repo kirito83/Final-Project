@@ -15,6 +15,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'TopSecret';
+  src: font-url('TopSecret.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   background-color: #222;
   margin: 0;
@@ -194,7 +201,6 @@ animation:rainbow 1.5s infinite;
 @media screen and (max-width: 600px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
-    position: absolute;
     right: 0;
     top: 0;
   }
@@ -260,7 +266,6 @@ animation:rainbow 1.5s infinite;
   background-image: url(contest.jpg);
   background-size: 100%;
   padding-bottom: 50%;
-  margin-top: -2%;
   z-index: 1;
 }
 
@@ -420,16 +425,15 @@ h1 {
 li .divider {
   width: 100%;
 }
-.f-nav{ 
-z-index: 9999; 
-position: fixed; 
-left: 0; 
-top: 0; 
-width: 100%;
-}
+
 
 
 .topnav1 {
+  padding-left: 4%;
+  padding-right: 4%;
+}
+
+.topnav2 {
   padding-left: 4%;
   padding-right: 4%;
 }
@@ -441,6 +445,16 @@ width: 100%;
   padding: 7px 8px;
   text-decoration: none;
   font-size: 17px;
+}
+
+.topnav2 a {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 7px 8px;
+  text-decoration: none;
+  font-size: 17px;
+  margin-top: -2%;
 }
 
 #logo1 {
@@ -594,7 +608,6 @@ animation:rainbow 1.5s infinite;
 @media screen and (max-width: 600px) {
   .topnav1.responsive {position: relative;}
   .topnav1.responsive .icon {
-    position: absolute;
     right: 0;
     top: 0;
   }
@@ -626,13 +639,22 @@ td {
 }
 .alert {
   position: absolute;
-  width: 100%;
-  background-color: white;
-  padding: 1% 0;
-  margin: 0;
+  width: 30%;
+  padding: 8% 0;
+  margin: 20% 35%;
   text-align: center;
-  border-radius: 0;
-  background-image: radial-gradient(ellipse at center, #87c3ff, #1990ff);
+  border-radius: 20px;
+  color: #d3d3d3;
+  font-family: 'TopSecret';
+  font-size: 22px;
+}
+
+.alert-alert {
+  background-image: radial-gradient(ellipse at center, #ff8989, #fc0000);
+}
+
+.alert-notice {
+  background-image: radial-gradient(ellipse at center, #1990ff, #0048ff);
 }
 
  .fade {
@@ -642,8 +664,10 @@ td {
     -o-transition: opacity 0.15s linear;
     transition: opacity 0.15s linear;
 }
+
 .fade.in {
     opacity: 1;
+    z-index: 999;
 }
 
 .tabs {
