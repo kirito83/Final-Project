@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180318192639) do
+ActiveRecord::Schema.define(version: 20180319200404) do
 
   create_table "matches", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 20180318192639) do
     t.integer "pricepool"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tournaments_users", id: false, force: :cascade do |t|
+    t.integer "tournament_id", null: false
+    t.integer "user_id", null: false
+    t.index ["tournament_id", "user_id"], name: "index_tournaments_users_on_tournament_id_and_user_id"
+    t.index ["user_id", "tournament_id"], name: "index_tournaments_users_on_user_id_and_tournament_id"
   end
 
   create_table "users", force: :cascade do |t|

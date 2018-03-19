@@ -1,18 +1,96 @@
-<div class='new_tournament'>
+<script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
+
+<div class='tabs'>
+
 	<p id="notice"><%= notice %></p>
 
 	<h1><%= @tournament.title %></h1>
 
-	<br><br>
+	<h2 class='center'><%= @tournament.description %></h2>
 
-	<p><%= @tournament.description %></p>
+	<br>
 
-	<p><%= @tournament.date %></p>
+	<div class='table'>
+		<div class='header'>
+			<h3 class='btn-infos'>Infos</h3>
+			<h3 class='btn-participants'>Participants</h3>
+			<h3 class='btn-bracket'>Bracket</h3>
+		</div>
+		<div class='infos'>
+			<p>Date : <%= @tournament.date %></p>
+			<p>Prix : <%= @tournament.pricepool %></p>
+		</div>
+		<div class='participants'>
+			<% @tournament.participants.each do |member| %>
+			<p><%= member.username %></p>
+			<% end %>
+		</div>
+		<div class='bracket'>
+			<article id="container">
+				
+				<section>
+					<div>Player 1</div>
+					<div>Player 2</div>
+					<div>Player 3</div>
+					<div>Player 4</div>
+					<div>Player 5</div>
+					<div>Player 6</div>
+					<div>Player 7</div>
+					<div>Player 8</div>
+				</section>
 
-	<p>
-		<strong>Prix:</strong>
-		<%= @tournament.pricepool %>
-	</p>
+				<div class="connecter">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+
+				<div class="line">
+					<div>
+					</div><div>
+					</div><div>
+					</div><div>
+					</div>
+				</div>
+
+				<section id="quarterFinals">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</section>
+
+				<div class="connecter" id="conn2">
+					<div></div>
+					<div></div>
+				</div>
+
+				<div class="line" id="line2">
+					<div></div>
+					<div></div>
+				</div>
+
+				<section id="semiFinals">
+					<div></div>
+					<div></div>
+				</section>
+
+				<div class="connecter" id="conn3">
+					<div></div>
+				</div>
+
+				<div class="line" id="line3">
+					<div></div>
+				</div>
+
+				<section id="final">
+					<div></div>
+				</section>
+
+			</article>
+		</div>
+	</div>
 
 	<br>
 
