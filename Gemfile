@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem "paperclip", "~> 6.0.0"
+gem 'country_select'
 gem 'aws-sdk'
 gem 'stripe'
 gem 'mailjet'

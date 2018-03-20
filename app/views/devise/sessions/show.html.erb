@@ -1,8 +1,17 @@
+<div class="profil">
 <%= image_tag current_user.photo unless current_user.photo.nil? %>
 
 <%= current_user.email %>
 
-<div class="container">
+<%= current_user.username unless current_user.username.nil? %>
+
+<%= current_user.street unless current_user.street.nil? %>
+
+<%= current_user.city unless current_user.city.nil? %>
+
+<%= current_user.country unless current_user.country.nil? %>
+
 	<%= link_to 'Editer', edit_user_registration_path %>
+
 </div>
 
