@@ -1,107 +1,66 @@
-<div class='landing'>
-	<div class='landing1'>
-		<div class="topnav2" id="myTopnav">
-			<div class="right-nav">
-				<a id='logo1' href="/" class="active"><b>EASE</b></a>
+<div data-collapse="medium" data-animation="default" data-duration="400" class="navbar w-nav">
+	<div class="container-2 w-container">
+		<nav role="navigation" class="nav-menu w-nav-menu"><a class="nav-link w-nav-link">Home</a><a href="#" class="nav-link-2 w-nav-link">About</a><a href="#" class="nav-link-3 w-nav-link">Contact</a></nav><%= image_tag "Ease-1.png", width: "74", class: "image" %></div>
+		<div data-hover="1" data-delay="4000" class="dropdown w-clearfix w-dropdown">
+			<div class="dropdown-toggle w-dropdown-toggle">
+				<div class="icon w-icon-dropdown-toggle"></div>
+				<div class="text-block-3">Mon compte</div>
 			</div>
-			<div class="left-nav1">
-				<% if signed_in? %>
-				<%= link_to 'LISTE DES TOURNOIS', '/tournaments' %>
-				<%= link_to 'CREATION TOURNOI', new_tournament_path %>
-				<% end %>
-				<a href="#news"><b>NEWS</b></a>
-				<a href="#contact"><b>CONTACT</b></a>
-				<a href="#about"><b>ABOUT</b></a>
-			</div>
-			<div class='end-nav1'>
-				<% if signed_in? %>
-				<li class="dropdown">
-					<a href="#" class='dropdown-toggle' data-toggle="dropdown">Mon compte&nbsp;<b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><%= link_to "Profil", show_path %></li>
-						<li class="divider">|</li>
-						<li> <%= link_to "Déconnexion", '/sign_out', method: :delete%> </li>
-					</ul>
-				</li>
-				<% else %>
-				<%= link_to "INSCRIPTION", new_user_registration_path, class: 'sign_up' %>
-				<%= link_to "CONNEXION", '/sign_in', class: 'sign_in' %>
-				<% end %>
+			<nav class="w-dropdown-list"><a href="#" class="w-dropdown-link">Link 1</a><a href="#" class="w-dropdown-link">Link 2</a><a href="#" class="w-dropdown-link">Link 3</a><a href="#" class="w-dropdown-link">Link 4</a></nav>
+		</div><a class="link-2">Créer un tournois</a></div>
+		<div class="container w-container">
+			<div class="section-2">
+				<div>
+					<h1 class="heading"><strong class="bold-text">EASE</strong></h1>
+					<div class="text-block-4">Crée tes compétitions</div>
+					<div class="text-block">Deviens un champion</div>
+				</div>
 			</div>
 		</div>
-		<%= link_to "INSCRIPTION", new_user_registration_path, class: 'sign_up' %>
-		<%= link_to "CONNEXION AVEC FACEBOOK", user_facebook_omniauth_authorize_path , class: 'sign_in' %>
-		<h1>Cree tes propres competitions !</h1>
-		<br>
-		<p>Regroupe tes amis pour creer tes propres competitions.</p>
-		<p>Choisissez le montant de la somme mis en jeu ou bien jouez juste pour le fun !</p>
-		<br>
-		<div id="presentation">
-			<%= image_tag "courbe.png", id: 'img-presentation' %>
-			<%= image_tag "Random-turtle.gif", id: 'img-presentation2' %>
-			<%= image_tag "courbe.png", id: 'img-presentation3' %>
+		<div class="w-container"><%= image_tag "954HX2WHHUTY1400722573052.jpg", sizes:"(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px", class: "image-4" %></div>
+		<div class="section-4"><%= image_tag "Ease-2.png", width: "101", class: "image-9" %><%= image_tag "Ease-4.png", class: "image-8" %><%= image_tag "Ease-3.png", width: "107", class: "image-7" %></div>
+		<div class="section-5">
+			<div class="text-block-5">This is some text inside of a div block.</div>
+			<div class="text-block-7">This is some text inside of a div block.</div>
+			<div class="text-block-8">This is some text inside of a div block.</div>
 		</div>
-	</div>
-
-	<div class='landing2'>
-		<h1>Les jeux disponibles</h1>
-		<div class='jeux'>
-			<%= image_tag 'LOL.png' %>
-			<%= image_tag 'HS.png' %>
+		<div class="section-6">
+			<h1 class="heading-6">Les jeux disponibles</h1>
+			<div class="container-5 w-container"><%= image_tag "LOL.png", width: "350", height: "160", sizes: "(max-width: 479px) 100vw, 350px", class: "image-10" %><%= image_tag"HS.png", width: "350", height: "170", sizes: "(max-width: 479px) 100vw, (max-width: 991px) 361.8875732421875px, 350px", class: "image-11" %></div>
 		</div>
-	</div>
-
-	<div class='landing3'>
-		<div class='landing3-left'>
-			<h2>Profitez de nos interfaces !</h2>
-			<br>
-			<p>Lors de vos tournois, vous pourrez acceder a nos interfaces en ligne pour mener a bien votre competition.</p>
+		<div class="section-7">
+			<div class="text-block-10">This is some text inside of a div block.</div>
+			<div class="text-block-9">This is some text inside of a div block.</div>
 		</div>
-
-		<div class='landing3-right'>
-			<%= image_tag 'Random-turtle.gif', class: 'landing3img' %>
+		<div class="section-8">
+			<h2 class="heading-7">Rejoins la newsletter</h2>
+			<div class="w-container">
+				<div class="text-block-11">Inscris toi pour être informé des nouvelles fonctionnalités Ease</div>
+				<div class="w-form">
+					<form id="email-form" name="email-form" data-name="Email Form"><label for="email" class="field-label-2">Email Address:</label><input type="text" class="w-input" maxlength="256" name="email" data-name="Email" placeholder="Enter your email" id="email" required=""><input type="submit" value="Submit" data-wait="Please wait..." class="w-button"></form>
+					<div class="w-form-done">
+						<div>Thank you! Your submission has been received!</div>
+					</div>
+					<div class="w-form-fail">
+						<div>Oops! Something went wrong while submitting the form.</div>
+					</div>
+				</div>
+			</div>
+			<div class="container-8 w-container">
+				<div class="footer-8">
+					<h5 class="heading-10">À propos de nous</h5>
+					<div class="text-block-15">Nous sommes une petite équipe de trois jeunes codeurs qui voulons aider les joueurs de esport lambda, comme nous, à développer une scène compétitrice sur des jeux qui nous tiennent à coeur. Pour nous envoyer des idées n'hésitez pas à aller sur la page <b>Contact</b> !</div>
+				</div>
+				<div>
+					<h5 class="heading-11">Heading</h5>
+					<div class="text-block-14">This is some text inside of a div block.</div>
+				</div>
+			</div>
 		</div>
-	</div>
-
-	<div class='landing4'>
-		<div class='landing4-left'>
-			<%= image_tag 'Random-turtle.gif', class: 'landing4img' %>
+		<div class="section-9">
+			<div class="text-block-16">© Ease 2018</div>
+			<div class="text-block-17">Made with THP knowledge and <i class="em em-hearts"></i></div>
 		</div>
-
-		<div class='landing4-right'>
-			<h2>La competition avant tout !</h2>
-			<br>
-			<p>Ameliore toi et gagne de l'experience pour progresser dans nos leagues.</p>
-			<p>Suis ton classement national et celui de tes amis !</p>
-		</div>
-	</div>
-
-	<div class='landing5'>
-		<div class='landing3-left'>
-			<h1>SHOP</h1>
-			<br>
-			<p>Decouvrez notre boutique et achetez de nombreux cadeaux avec vos points gagnes lors des tournois.</p>
-		</div>
-		<div class='landing3-right'>
-			<%= image_tag "Random-turtle.gif", class: 'landing3img' %>
-		</div>
-	</div>
-</div>
-
-<script type="text/javascript">
-	var duration = 2700;
-	var duration2 = 2200;
-	var duration3 = 3400;
-
-	function bannerMoveDown(){
-		$("#img-presentation").animate({top:'-=6px'}, duration, 'swing');
-		$("#img-presentation3").animate({top:'-=8px'}, duration3, 'swing');
-		$("#img-presentation2").animate({top:'-=3px'}, duration2, 'swing', bannerMoveUp);
-	}
-	function bannerMoveUp(){
-		$("#img-presentation").animate({top:'+=6px'}, duration, 'swing');
-		$("#img-presentation3").animate({top:'+=8px'}, duration3, 'swing');
-		$("#img-presentation2").animate({top:'+=3px'}, duration2, 'swing', bannerMoveDown);
-	}
-	bannerMoveUp();
-</script>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript" intergrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="js/webflow.js" type="text/javascript"></script>
+  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->

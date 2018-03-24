@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
+<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+  <html data-wf-page="5ab2f0a9b28b03a2ecf3e615" data-wf-site="5ab2f0a9b28b030fa1f3e614">
 <%= render 'layouts/head' %>
-<body>
+<body class="body">
   <%= render 'layouts/header' %>
   <% flash.each do |message_type, message| %>
   <div id='myAlert' class="alert alert-<%= message_type %> fade">
@@ -10,7 +12,6 @@
   <% end %>
   <%= yield %>
   <%= debug(params) if Rails.env.development? %>
-  <%= render 'layouts/footer' %>
   <%= render 'layouts/flash' %>
 </body>
 </html>

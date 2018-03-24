@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require bootstrap
+//= require webflow
 //= require custom
 //= require rails-ujs
 //= require turbolinks
