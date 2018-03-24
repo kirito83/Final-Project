@@ -1,0 +1,13 @@
+<div class="shop">
+<h2> Products </h2>
+
+<ol>
+	<% @products.each do |product| %>
+	<li>
+		<%= product.title %> (<%= number_to_currency product.price %>)
+		<%= image_tag product.image_url %>
+
+	</li>
+	<%end%>
+</ol>
+</div>
