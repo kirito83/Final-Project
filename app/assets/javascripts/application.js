@@ -18,8 +18,8 @@
 //= require_tree .
 //= require_self
 
-function main() {
-	$('.infos').hide();
+$(document).on('turbolinks:load', function main() {
+	$('.bracket').hide();
 	$('.participants').hide();
 	$('.btn-bracket').on('click', function() {
 		$(this).toggleClass('active');
@@ -35,10 +35,8 @@ function main() {
 	});
 	$('.btn-participants').on('click', function() {
 		$(this).toggleClass('active');
-		$('.presenation').hide();
+		$('.bracket').hide();
 		$('.infos').hide();
 		$('.participants').slideToggle(1000);
 	});
-}
-
-$(document).ready(main);
+});

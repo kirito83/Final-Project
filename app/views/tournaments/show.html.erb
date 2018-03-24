@@ -1,98 +1,196 @@
-<script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
+<head>
+	<title>Tournament Bracket Generator</title>
+	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+	<script src="http://underscorejs.org/underscore-min.js"></script>
+	<style type="text/css">
+			/*
+ *  Flex Layout Specifics
+ */
+ main{
+ 	display:flex;
+ 	flex-direction:row;
+ 	justify-content: center;
+ }
+ .round{
+ 	display:flex;
+ 	flex-direction:column;
+ 	align-items: center;
+ 	width:200px;
+ 	list-style:none;
+ 	padding:0;
+ }
+ .round .spacer{ flex-grow:1; }
+ .round .spacer:first-child,
+ .round .spacer:last-child{ flex-grow:.5; }
 
-<div class='tabs'>
+ .round .game-spacer{
+ 	flex-grow:1;
+ }
 
+/*
+ *  General Styles
+ */
+ body{
+ 	font-family:sans-serif;
+ 	font-size:small;
+ 	padding:10px;
+ 	line-height:1.4em;
+ }
 
-	<h1><%= @tournament.title %></h1>
+ li.game{
+ 	color: white;
+ }
 
-	<h2 class='center'><%= @tournament.description %></h2>
+ li.game.winner{
+ 	font-weight:bold;
+ }
+ li.game span{
+ 	float:right;
+ 	margin-right:5px;
+ }
 
-	<br>
+ li.game-top{ border-bottom:1px solid #aaa; }
 
-	<div class='table'>
-		<div class='header'>
-			<h3 class='btn-infos'>Infos</h3>
-			<h3 class='btn-participants'>Participants</h3>
-			<h3 class='btn-bracket'>Bracket</h3>
-		</div>
-		<div class='infos'>
-			<p>Date : <%= @tournament.date %></p>
-			<p>Prix : <%= @tournament.pricepool %></p>
-		</div>
-		<div class='participants'>
-			<% @tournament.participants.each do |member| %>
-			<p><%= member.username %></p>
-			<% end %>
-		</div>
-		<div class='bracket'>
-			<article id="container">
-				
-				<section>
-					<div>Player 1</div>
-					<div>Player 2</div>
-					<div>Player 3</div>
-					<div>Player 4</div>
-					<div>Player 5</div>
-					<div>Player 6</div>
-					<div>Player 7</div>
-					<div>Player 8</div>
-				</section>
+ li.game-spacer{ 
+ 	border-right:1px solid #aaa;
+ 	min-height:40px;
+ }
 
-				<div class="connecter">
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-				</div>
+ li.game-bottom{ 
+ 	border-top:1px solid #aaa;
+ }
 
-				<div class="line">
-					<div>
-					</div><div>
-					</div><div>
-					</div><div>
-					</div>
-				</div>
+ .btn {
+ 	color: white;
+ 	font-size: 14px;
+ }
+ .btn:hover {
+ 	color: white;
+ }
 
-				<section id="quarterFinals">
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-				</section>
+ .link {
+ 	text-decoration: none;
+ 	margin-left: 48.5%;
+ 	color: white;
+ 	font-size: 20px;
+ }
+ .link:hover {
+ 	color: white;
+ }
 
-				<div class="connecter" id="conn2">
-					<div></div>
-					<div></div>
-				</div>
+</style>
+</head>
+<body>
+	<div class='tabs'>
 
-				<div class="line" id="line2">
-					<div></div>
-					<div></div>
-				</div>
+		<h1><%= @tournament.title %></h1>
 
-				<section id="semiFinals">
-					<div></div>
-					<div></div>
-				</section>
+		<h2 class='center'><%= @tournament.description %></h2>
 
-				<div class="connecter" id="conn3">
-					<div></div>
-				</div>
+		<br>
 
-				<div class="line" id="line3">
-					<div></div>
-				</div>
+		<div class='table'>
+			<div class='header'>
+				<h3 class='btn btn-infos'>Infos</h3>
+				<h3 class='btn btn-participants'>Participants</h3>
+				<h3 class='btn btn-bracket'>Bracket</h3>
+			</div>
 
-				<section id="final">
-					<div></div>
-				</section>
+			<hr>
 
-			</article>
+			<div class='infos'>
+				<p>Date : <%= @tournament.date %></p>
+				<p>Prix : <%= @tournament.pricepool %> euros</p>
+			</div>
+			<div class='participants'>
+				<% @tournament.participants.each do |member| %>
+				<p><%= member.username %></p>
+				<% end %>
+			</div>
+			<div class='bracket'>
+				<main id="tournament">
+					<% @index = 0 %>
+					<% if !([2, 4, 8, 16, 32].include?(@tournament.participants.length)) %>
+					<ul class='round'>
+						<% while (@length - @base > 0) do %>
+						<li class="spacer">&nbsp;</li>
+
+						<li class="game game-top winner"><%= @team[@index] %></li>
+						<% @index += 1 %>
+						<li class="game game-spacer">&nbsp;</li>
+						<li class="game game-bottom "><%= @team[@index] %></li>
+
+						<li class="spacer">&nbsp;</li>
+						<% @length -= 1 %>
+						<% @index += 1 %>
+						<% end %>
+						<% while @index < @tournament.participants.length %>
+						<li class="spacer">&nbsp;</li>
+
+						<li class="game game-top winner"><%= @team[@index] %></li>
+						<% @index += 1 %>
+						<li class="game game-spacer">&nbsp;</li>
+						<li class="game game-bottom">Casper</li>
+
+						<li class="spacer">&nbsp;</li>
+						<% end %>
+					</ul>
+					<% @rounds -= 1 %>
+					<% while (@rounds > 0) %>
+					<ul class="round">
+						<% @indice = 2**(@rounds-1) %>
+						<% while @indice > 0 %>
+						<li class="spacer">&nbsp;</li>
+
+						<li class="game game-top">undefined</li>
+						<li class="game game-spacer">&nbsp;</li>
+						<li class="game game-bottom ">undefined</li>
+
+						<li class="spacer">&nbsp;</li>
+						<% @indice -= 1 %>
+						<% end %>
+					</ul>
+					<% @rounds -= 1 %>
+					<% end %>
+					<% else %>
+					<% while (@rounds > 0) do %>
+					<ul class="round">
+						<% @indice = @rounds %>
+						<% if @index == 0 %>
+						<% while @indice > 0 %>
+						<li class="spacer">&nbsp;</li>
+
+						<li class="game game-top"><%= @team[@index] %></li>
+						<li class="game game-spacer">&nbsp;</li>
+						<% @index += 1 %>
+						<li class="game game-bottom "><%= @team[@index] %></li>
+
+						<li class="spacer">&nbsp;</li>
+						<% @index += 1 %>
+						<% @indice -= 1 %>
+						<% end %>
+						<% else %>
+						<% while @indice > 0 %>
+						<li class="spacer">&nbsp;</li>
+
+						<li class="game game-top">undefined</li>
+						<li class="game game-spacer">&nbsp;</li>
+						<li class="game game-bottom ">undefined</li>
+
+						<li class="spacer">&nbsp;</li>
+						<% @indice -= 1 %>
+						<% end %>
+						<% end %>
+					</ul>
+					<% @rounds -= 1 %>
+					<% end %>
+					<% end %>
+				</main>
+			</div>
 		</div>
 	</div>
 
-	<br>
+	<br><br>
 
-	<%= link_to 'Editer', edit_tournament_path(@tournament) %>
-	<%= link_to 'Retour', tournaments_path %>
-</div>
+	<%= link_to "Retour", '/tournaments', class: 'link' %>
+</body>

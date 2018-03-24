@@ -10,6 +10,20 @@ class TournamentsController < ApplicationController
   # GET /tournaments/1
   # GET /tournaments/1.json
   def show
+    @tournament = Tournament.find(params[:id])
+    @tournament.participants.shuffle
+    @length = @tournament.participants.length
+    @base = 1
+    @rounds = 0
+    while (@length > @base) do
+      @base += @base
+      @rounds += 1
+    end
+    @base /= 2
+    @team = []
+    @tournament.participants.each do |member|
+      @team << member.username
+    end
   end
 
   # GET /tournaments/new
