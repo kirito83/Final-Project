@@ -1,6 +1,6 @@
 <div class="navbar w-nav">
  	<div class="container-2 w-container"><%= image_tag "Ease-1.png", width: "74", class: "image" %></div>
- 	<%= link_to "Créer un tournois", new_tournament_path, class: "link-2" %>
+ 	<%= link_to "Créer un tournois", new_tournament_path, class: "link-2 hvr-curl-bottom-right" %>
  	<% if signed_in? %>
  	<div data-delay="300" class="dropdown w-clearfix w-dropdown">
  		<div class="dropdown-toggle w-dropdown-toggle">
@@ -10,7 +10,7 @@
  		<nav class="dropdown-list w-dropdown-list"><%= link_to 'Profil', show_path, class: "dropdown-link w-dropdown-link" %><a href="#" class="dropdown-link-3 w-dropdown-link">Mes tournois</a><%= link_to 'Déconnexion', sign_out_path, class: "dropdown-link-2 w-dropdown-link", method: :delete %></nav>
  	</div>
  	<% else %>
- 	 <%= link_to 'Connexion', sign_in_path, class: "link-sign-in" %>
+ 	 <%= link_to 'Connexion', sign_in_path, class: "link-sign-in hvr-ripple-in" %>
  	<% end %>
  </div>
  	<h1 class="heading"><strong class="bold-text">EASE</strong></h1>
