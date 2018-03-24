@@ -1,2 +1,0 @@
-class ProductVariant < ApplicationRecord
-end

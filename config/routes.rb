@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :matches
   resources :tournaments
+  resources :products
   root to: 'home#index'
 
   devise_for :users, controllers: {
