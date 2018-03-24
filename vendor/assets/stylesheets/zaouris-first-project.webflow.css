@@ -129,6 +129,7 @@
 .bold-text {
   position: static;
   display: inline-block;
+  overflow: hidden;
   padding-right: 1%;
   padding-left: 1%;
   border: 1px dotted #272727;
@@ -169,10 +170,11 @@
 }
 
 .link-2 {
+  position: relative;
   display: block;
   height: 80%;
   margin-top: 0.5%;
-  margin-right: 18%;
+  margin-right: 14%;
   padding: 1% 0.5% 0%;
   float: right;
   border-radius: 50px;
@@ -186,17 +188,13 @@
 }
 
 .dropdown {
-  position: relative;
-  z-index: 2;
+  position: absolute;
   overflow: visible;
-  margin-right: 3%;
-  margin-left: 79%;
-  float: right;
-  clear: none;
+  margin-left: 86%;
+  bottom: 3.6em;
 }
 
 .dropdown-toggle {
-  padding: 12% 0% 13% 10%;
   float: right;
 }
 
@@ -209,7 +207,7 @@
 }
 
 .icon {
-  margin-right: 0px;
+  margin-right: 15%;
   color: #fff;
 }
 
@@ -440,6 +438,7 @@
 
 .dropdown-link {
   position: static;
+  display: block;
   overflow: visible;
   padding-right: 0px;
   padding-left: 20px;
@@ -450,23 +449,24 @@
   font-size: 15px;
   font-weight: 500;
   text-align: left;
-  z-index: 2;
 }
 
 .dropdown-link-2 {
+  position: relative;
   overflow: visible;
   font-family: Montserrat, sans-serif;
   color: #fff;
   font-size: 15px;
   font-weight: 500;
   text-align: left;
-  z-index: 2;
 }
 
+.dropdown-list {
+  position: relative;
+}
 
 .dropdown-list.w--open {
-  position: absolute;
-  z-index: 2;
+  position: static;
   left: 0px;
   top: 0px;
   display: block;
@@ -474,7 +474,6 @@
   margin-top: 30%;
   margin-left: 10%;
   background-color: #0c1d2b;
-  z-index: 2;
 }
 
 .dropdown-link-3 {
@@ -482,7 +481,24 @@
   color: #fff;
   font-size: 15px;
   font-weight: 500;
-  z-index: 2;
+}
+
+.link-sign-in {
+  display: block;
+  height: 80%;
+  margin-top: 0.5%;
+  margin-right: 4%%;
+  padding: 1% 0.5% 0%;
+  float: right;
+  border-radius: 50px;
+  background-color: #f34a4a;
+  box-shadow: 0 0 2px 1px #707070;
+  font-family: Montserrat, sans-serif;
+  color: #ebeaea;
+  font-weight: 300;
+  text-align: center;
+  text-shadow: 0 1px 0 #272727;
+
 }
 
 @media (max-width: 991px) {
