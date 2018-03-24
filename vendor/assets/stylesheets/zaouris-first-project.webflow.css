@@ -11,7 +11,7 @@
 
 .body {
   height: 100%;
-  background-color: #85afe2;
+  background-color: #97b3c0;
 }
 
 .nav-link {
@@ -87,7 +87,6 @@
 
 .container {
   display: block;
-  margin-top: 1%;
   padding-top: 0%;
   padding-bottom: 2%;
 }
@@ -117,11 +116,19 @@
 }
 
 .heading {
+  position: relative;
   display: block;
+  margin-top: 20px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   text-align: center;
 }
 
 .bold-text {
+  position: static;
+  display: inline-block;
   padding-right: 1%;
   padding-left: 1%;
   border: 1px dotted #272727;
@@ -165,7 +172,7 @@
   display: block;
   height: 80%;
   margin-top: 0.5%;
-  margin-right: 6%;
+  margin-right: 18%;
   padding: 1% 0.5% 0%;
   float: right;
   border-radius: 50px;
@@ -179,11 +186,16 @@
 }
 
 .dropdown {
+  position: relative;
+  z-index: 2;
+  overflow: visible;
+  margin-right: 3%;
+  margin-left: 79%;
   float: right;
+  clear: none;
 }
 
 .dropdown-toggle {
-  margin-right: 35%;
   padding: 12% 0% 13% 10%;
   float: right;
 }
@@ -202,7 +214,6 @@
 }
 
 .text-block-4 {
-  margin-top: 2%;
   font-family: Ubuntu, Helvetica, sans-serif;
   color: #272727;
   font-size: 15px;
@@ -320,7 +331,6 @@
   -webkit-justify-content: space-around;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  padding-top: 4%;
 }
 
 .heading-10 {
@@ -428,8 +438,51 @@
   font-weight: 300;
 }
 
-.footer-8 {
-  max-width: 45%;
+.dropdown-link {
+  position: static;
+  overflow: visible;
+  padding-right: 0px;
+  padding-left: 20px;
+  float: none;
+  clear: none;
+  font-family: Montserrat, sans-serif;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: left;
+  z-index: 2;
+}
+
+.dropdown-link-2 {
+  overflow: visible;
+  font-family: Montserrat, sans-serif;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: left;
+  z-index: 2;
+}
+
+
+.dropdown-list.w--open {
+  position: absolute;
+  z-index: 2;
+  left: 0px;
+  top: 0px;
+  display: block;
+  overflow: visible;
+  margin-top: 30%;
+  margin-left: 10%;
+  background-color: #0c1d2b;
+  z-index: 2;
+}
+
+.dropdown-link-3 {
+  font-family: Montserrat, sans-serif;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  z-index: 2;
 }
 
 @media (max-width: 991px) {
