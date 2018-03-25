@@ -125,8 +125,16 @@
 						<li class="game game-bottom "><%= @team[@index] %></li>
 
 						<li class="spacer">&nbsp;</li>
-						<% if Match.find_by(joueur1: @team[@index-1], joueur2: @team[@index]).nil? %>
+						<% @this_match = Match.find_by(joueur1: @team[@index-1], joueur2: @team[@index]) %>
+						<% if @this_match.nil? %>
 						<% Match.create(joueur1: @team[@index-1], joueur2: @team[@index]) %>
+						<% else %>
+						<% if !(@this_match.winner1.nil?) && (@this_match.winner1 == @this_match.winner2) %>
+						<% u = User.find_by(username: @this_match.winner1) %>
+						<% if u.points == 0 %>
+						<% u.points += 1 %>
+						<% end %>
+						<% end %>
 						<% end %>
 						<% @length -= 1 %>
 						<% @index += 1 %>
