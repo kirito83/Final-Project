@@ -1,4 +1,20 @@
-<p id="notice"><%= notice %></p>
+<head>
+	<style type="text/css">
+	h1 {
+		color: white;
+	}
+</style>
+</head>
 
-<%= link_to 'Edit', edit_match_path(@match) %> |
-<%= link_to 'Back', matches_path %>
+<body>
+	<p id="notice"><%= notice %></p>
+
+	<% if current_user.username == @match.joueur1 %>
+	<h1><%= current_user.username %> VS <%= @match.joueur2 %></h1>
+	<% else %>
+	<h1><%= current_user.username %> VS <%= @match.joueur1 %></h1>
+	<% end %>
+
+<%= render 'form', match: @match %>
+
+</body>

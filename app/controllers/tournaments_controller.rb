@@ -12,6 +12,7 @@ class TournamentsController < ApplicationController
   def show
     @tournament = Tournament.find(params[:id])
     @tournament.participants.shuffle
+
     @length = @tournament.participants.length
     @base = 1
     @rounds = 0
@@ -20,10 +21,13 @@ class TournamentsController < ApplicationController
       @rounds += 1
     end
     @base /= 2
+
     @team = []
     @tournament.participants.each do |member|
       @team << member.username
     end
+
+    @match = Match.find_by(joueur1: current_user.username) || Match.find_by(joueur2: current_user.username)
   end
 
   # GET /tournaments/new

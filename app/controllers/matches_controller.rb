@@ -10,6 +10,7 @@ class MatchesController < ApplicationController
   # GET /matches/1
   # GET /matches/1.json
   def show
+    @match = Match.find(params[:id])
   end
 
   # GET /matches/new
@@ -69,6 +70,6 @@ class MatchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def match_params
-      params.fetch(:match, {})
+      params.require(:match).permit(:winner1, :winner2)
     end
 end

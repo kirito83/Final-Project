@@ -11,7 +11,16 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label 'Vainqueur', class: 'label' %><br>
+    <% if current_user.username == @match.joueur1 %>
+    <%= form.text_field :winner1, id: :match_winner1 %>
+    <% else %>
+    <%= form.text_field :winner2, id: :match_winner2 %>
+    <% end %>
+  </div>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Match termine" %>
   </div>
 <% end %>

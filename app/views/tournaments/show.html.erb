@@ -81,14 +81,6 @@
  	color: white;
  }
 
- .btn-primary {
- 	margin-left: 48%;
- }
-
- .btn-danger {
- 	margin-left: 47%;
- }
-
 </style>
 </head>
 <body>
@@ -236,11 +228,17 @@
 	<% if signed_in? && !(@tournament.participants.include?(current_user)) %>
 	<%= button_to 'Participer', suscribe_tournament_path(@tournament), method: :post, class: 'btn btn-primary' %>
 	<% elsif @tournament.participants.include?(current_user) %>
-	<%= button_to 'Voir mon prochain match' %>
+	<% unless @match.nil? %>
+	<% if (current_user.username == @match.joueur1 && @match.winner1.nil?) || (current_user.username == @match.joueur2 && @match.winner2.nil?) %>
+	<%= link_to 'Voir mon prochain match', @match, class: 'btn btn-primary' %>
+	<% else %>
+	<p>Vous avez deja indique le nom du vainqueur, veuillez attendre la reponse de votre adversaire.</p>
+	<% end %>
+	<% end %>
 	<%= button_to 'Se desinscrire', unsuscribe_tournament_path(@tournament), method: :post, class: 'btn btn-danger' %>
 	<% end %>
 
 	<br><br>
 
-	<%= link_to "Retour", '/tournaments', class: 'link' %>
+	<%= link_to "Retour", '/tournaments', class: 'btn btn-link' %>
 </body>
