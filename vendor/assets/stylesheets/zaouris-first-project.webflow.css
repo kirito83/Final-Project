@@ -70,6 +70,7 @@
 }
 
 .image {
+  align-items: center;
   margin-left: 0%;
   padding-top: 0.5%;
   padding-bottom: 0.2%;
