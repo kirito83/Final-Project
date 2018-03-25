@@ -482,6 +482,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
   font-weight: 300;
 }
 
+.edith1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 2%;
+}
+
 .dropdown-link {
   position: static;
   display: block;
@@ -819,6 +825,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
   margin-right: 2%;
   margin-bottom: 0px;
   margin-left: 2%;
+  text-align: center;
 }
 
 .text-block-20 {
@@ -894,6 +901,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
 .unordered-list-2 {
   margin-right: 2%;
   margin-left: 2%;
+  text-align: center;
 }
 
 .user-photo {
