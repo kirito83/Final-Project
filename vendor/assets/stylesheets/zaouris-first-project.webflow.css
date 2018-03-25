@@ -133,6 +133,7 @@
   box-shadow: 0 0 20px 3px #fff;
   color: #fff;
   font-size: 35px;
+  text-shadow: 0 1px 2px black;
 background: rgba(230,65,51,1);
 background: -moz-radial-gradient(center, ellipse cover, rgba(230,65,51,1) 0%, rgba(230,65,51,1) 47%, rgba(230,108,99,1) 59%, rgba(245,149,142,1) 68%, rgba(255,212,209,1) 78%, rgba(255,255,255,1) 100%);
 background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(230,65,51,1)), color-stop(47%, rgba(230,65,51,1)), color-stop(59%, rgba(230,108,99,1)), color-stop(68%, rgba(245,149,142,1)), color-stop(78%, rgba(255,212,209,1)), color-stop(100%, rgba(255,255,255,1)));
@@ -145,7 +146,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e64133', end
 
 .text-block {
   font-family: Ubuntu, Helvetica, sans-serif;
-  color: white;
+  color: #D1D2A8;
   font-size: 22px;
   font-weight: 100;
   text-align: center;
@@ -171,13 +172,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e64133', end
   float: right;
 }
 
+
 .link-2 {
   position: relative;
   display: block;
-  height: 80%;
+padding: 1% 1.5%;
   margin-top: 0.5%;
   margin-right: 14%;
-  padding: 1.1% 1.5%;
   float: right;
   border-radius: 50px;
   box-shadow: 0 0 2px 1px #263a5b;
@@ -227,7 +228,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
 
 .text-block-4 {
   font-family: Ubuntu, Helvetica, sans-serif;
-  color: white;
+  color: #D1D2A8;
   font-size: 18px;
   font-weight: 100;
   text-align: center;
@@ -258,37 +259,31 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
   justify-content: space-around;
   background-color: #0c1d2b;
   font-family: Ubuntu, Helvetica, sans-serif;
-  color: #fff;
+  color: #D1D2A8;
   font-size: 13px;
   font-weight: 300;
 }
 
 .section-6 {
-      background-color: #98B3BF;
+      background-color: #2D3336;
     z-index: 1;
+    color: white;
 }
 
 .section-7 {
-      background-color: #98B3BF;
+      background-color: #2D3336;
     z-index: 1;
     padding-bottom: 1.5%;
+    color: #D1D2A8;
 }
 
 .heading-6 {
+  font-size: 30px;
   margin-top: 0px;
-  padding-top: 10px;
+  padding-top: 20px;
   text-align: center;
 }
 
-.container-5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-justify-content: space-around;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-}
 
 .section-7 {
   display: -webkit-box;
@@ -298,10 +293,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
   -webkit-justify-content: space-around;
   -ms-flex-pack: distribute;
   justify-content: space-around;
+  padding-top: 230px;
 }
 
 .text-block-9 {
-  margin-right: 18%;
+  margin-right: 20%;
 }
 
 .text-block-10 {
@@ -327,7 +323,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
 
 .text-block-11 {
   font-family: Montserrat, sans-serif;
-  color: #fff;
+  color: #D1D2A8;
   font-weight: 100;
   text-align: center;
 }
@@ -437,13 +433,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
 
 .text-block-14 {
   font-family: Montserrat, sans-serif;
-  color: #fff;
+  color: #D1D2A8;
   font-weight: 300;
 }
 
 .text-block-15 {
   font-family: Montserrat, sans-serif;
-  color: #fff;
+  color: #D1D2A8;
   font-weight: 300;
 }
 
@@ -508,12 +504,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
   font-weight: 500;
 }
 
+.image-10 {
+  position: absolute;
+  margin-left: 38%;
+}
+
+.image-11 {
+  margin-left: 8%;
+  position: absolute;
+}
+
 .link-sign-in {
   display: block;
-  height: 80%;
+  padding: 1.1% 1.5%;
   margin-top: 0.5%;
   margin-right: 1%;
-  padding: 1.1% 1.5%;
   float: right;
   border-radius: 50px;
   box-shadow: 0 0 2px 1px #272727;
@@ -625,7 +630,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
     font-family: Montserrat, sans-serif;
     color: #fff;
     font-weight: 500;
-    text-shadow: 0 4px 12px #53534e;
+    text-shadow: 0 1px 2px #53534e;
   }
   .text-block {
     opacity: 0.85;
