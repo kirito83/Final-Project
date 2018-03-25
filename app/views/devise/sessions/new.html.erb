@@ -18,7 +18,7 @@
   <h1>CONNEXION</h1>
 
   <%= form_for(resource, as: resource_name, url: sign_in_path) do |f| %>
-
+<div class="field">
     <%= f.label :email, class: 'label' %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>

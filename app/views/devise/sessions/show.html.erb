@@ -1,17 +1,40 @@
-<div class="profil">
-<%= image_tag current_user.photo unless current_user.photo.nil? %>
-
-<%= current_user.email %>
-
-<%= current_user.username unless current_user.username.nil? %>
-
-<%= current_user.street unless current_user.street.nil? %>
-
-<%= current_user.city unless current_user.city.nil? %>
-
-<%= current_user.country unless current_user.country.nil? %>
-
-	<%= link_to 'Editer', edit_user_registration_path %>
-
+<div class="navbar w-nav">
+	<div class="container-2 w-container"><%= image_tag "Ease-1.png", width: "86", class: "image" %></div>
+	<%= link_to "Créer un tournois", new_tournament_path, class: "link-2custom hvr-ripple-in" %>
+	<% if signed_in? %>
+	<div data-delay="300" class="dropdown w-clearfix w-dropdown">
+		<div class="dropdown-toggle w-dropdown-toggle">
+			<div class="icon w-icon-dropdown-toggle"></div>
+			<div class="text-block-3">Mon compte</div>
+		</div>
+		<nav class="dropdown-list w-dropdown-list"><%= link_to 'Profil', show_path, class: "dropdown-link w-dropdown-link" %><a href="#" class="dropdown-link-3 w-dropdown-link">Mes tournois</a><%= link_to 'Déconnexion', sign_out_path, class: "dropdown-link-2 w-dropdown-link", method: :delete %></nav>
+	</div>
+	<% else %>
+	<%= link_to 'Connexion', sign_in_path, class: "link-sign-in hvr-ripple-in" %>
+	<% end %>
 </div>
-
+<div class="container-9 w-container">
+	<div class="div-block-2">
+		<h1 class="heading-12"><%= current_user.username unless current_user.username.nil? %></h1><%= image_tag(current_user.photo, size: "160x160", class: 'user-photo') unless current_user.photo.nil? %></div>
+		<div class="section-12"><a href="#" class="link-6">Profil</a><a href="#" class="link-5">Mes tournois</a><%= link_to 'Editer', edit_user_registration_path, class: 'link-4' %></div>
+		<div class="section-11"></div>
+		<div class="section-13">
+			<h2 class="heading-13">Vos détails</h2>
+			<div>
+				<ul class="unordered-list w-list-unstyled">
+					<li class="list-item-8"></li>
+					<li class="list-item">Email : <%= current_user.email %></li>
+					<li class="list-item-6"></li>
+					<li class="list-item-2">Adresse : <%= current_user.street unless current_user.street.nil? %></li>
+					<li class="list-item-5"></li>
+				</ul>
+			</div>
+			<ul class="unordered-list-2 w-list-unstyled">
+				<li class="list-item-3">Ville : <%= current_user.city unless current_user.city.nil? %></li>
+				<li class="list-item-7"></li>
+				<li class="list-item-4">Pays : <%= current_user.country unless current_user.country.nil? %></li>
+			</ul>
+			<h2 class="heading-14">Votre description</h2>
+			<div class="div-block-3"></div>
+			<div class="text-block-20">DESCRIPTION</div>
+		</div>
