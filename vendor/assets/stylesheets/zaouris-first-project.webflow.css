@@ -506,12 +506,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
 
 .image-10 {
   position: absolute;
-  margin-left: 38%;
+  right: 21%;
 }
 
 .image-11 {
-  margin-left: 8%;
   position: absolute;
+  left: 21%;
 }
 
 .link-sign-in {
@@ -541,6 +541,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
   text-decoration: none;
   color: #D1D3A8;
 }
+
+.container-5 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-right: 0px;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: distribute;
+    justify-content: space-between;
+  }
+
 
 @-webkit-keyframes hvr-ripple-in {
   100% {
