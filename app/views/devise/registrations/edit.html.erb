@@ -1,4 +1,54 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
+  <%= devise_error_messages! %>
+
+<div class="container-9 w-container">
+  <h1 class="edith1">Edite ton profil</h1>
+  <div class="div-block-2">
+    <%= f.file_field :photo %></div>
+    <div class="section-11"></div>
+    <div class="section-13">
+      <h2 class="heading-13">Vos détails</h2>
+      <div>
+        <ul class="unordered-list w-list-unstyled">
+          <li class="list-item-8"></li>
+          <li class="list-item">Username : <%= f.text_field :username, autofocus: true, autocomplete: "username" %></li>
+          <li class="list-item-8"></li>
+          <li class="list-item">Email : <%= f.email_field :email, autofocus: true, autocomplete: "email" %></li>
+          <li class="list-item-6"></li>
+          <li class="list-item-2">Rue : <%= f.text_field :street, autofocus: true, autocomplete: "street" %></li>
+          <li class="list-item-5"></li>
+        </ul>
+      </div>
+      <ul class="unordered-list-2 w-list-unstyled">
+        <li class="list-item-3">Ville : <%= f.text_field :city, autofocus: true, autocomplete: "city" %></li>
+        <li class="list-item-7"></li>
+        <li class="list-item-4">Pays : <%= f.country_select :country %></li>
+        <li class="list-item-7"></li>
+        <li class="list-item-3">Description : <%= f.text_field :description, autofocus: true, autocomplete: "description" %></li>
+        <li class="list-item-6"></li>
+        <li class="list-item-4">Mot de passe : <%= f.password_field :password, autocomplete: "off" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %></li>
+    <li class="list-item-6"></li>
+    <li class="list-item-4">Confirmation : <%= f.password_field :password_confirmation, autocomplete: "off" %></li>
+    <li class="list-item-6"></li>
+    <li class="list-item-4">Entrez votre mot de passe pour confirmer les changements : <%= f.password_field :current_password, autocomplete: "off" %></li>
+    <%= f.submit "Update" %>
+      </ul>
+      <% end %>
+      <h2 class="heading-14">Votre description</h2>
+      <div class="div-block-3"></div>
+      <div class="text-block-20">DESCRIPTION</div>
+      Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>
+    </div>
+
+
 <h2>Edition <%= resource_name.to_s.humanize %></h2>
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
   <%= devise_error_messages! %>
