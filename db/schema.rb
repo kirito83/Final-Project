@@ -10,11 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180325140030) do
+ActiveRecord::Schema.define(version: 20180325151708) do
 
   create_table "matches", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "winner1"
+    t.string "winner2"
+    t.string "joueur1"
+    t.string "joueur2"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -94,6 +98,7 @@ ActiveRecord::Schema.define(version: 20180325140030) do
     t.string "photo_content_type"
     t.integer "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer "points", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
