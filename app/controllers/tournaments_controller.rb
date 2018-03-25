@@ -11,7 +11,6 @@ class TournamentsController < ApplicationController
   # GET /tournaments/1.json
   def show
     @tournament = Tournament.find(params[:id])
-    @tournament.participants.shuffle
 
     @length = @tournament.participants.length
     @base = 1
@@ -27,7 +26,13 @@ class TournamentsController < ApplicationController
       @team << member.username
     end
 
-    @match = Match.find_by(joueur1: current_user.username) || Match.find_by(joueur2: current_user.username)
+    Match.all.find_all{|match| match.tournament == @tournament}.each do |match|
+      if match.joueur1 == current_user.username && match.statut
+        @match = match
+      elsif match.joueur2 == current_user.username && match.statut
+        @match = match
+      end
+    end
   end
 
   # GET /tournaments/new
@@ -60,14 +65,19 @@ class TournamentsController < ApplicationController
   # PATCH/PUT /tournaments/1
   # PATCH/PUT /tournaments/1.json
   def update
-    respond_to do |format|
-      if @tournament.update(tournament_params)
-        format.html { redirect_to @tournament, notice: 'Tournament was successfully updated.' }
-        format.json { render :show, status: :ok, location: @tournament }
-      else
-        format.html { render :edit }
-        format.json { render json: @tournament.errors, status: :unprocessable_entity }
+    if current_user == @tournament.creator
+      respond_to do |format|
+        if @tournament.update(tournament_params)
+          format.html { redirect_to @tournament, notice: 'Tournament was successfully updated.' }
+          format.json { render :show, status: :ok, location: @tournament }
+        else
+          format.html { render :edit }
+          format.json { render json: @tournament.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      flash[:error] = "Vous n'etes pas le createur de ce tournoi."
+      redirect_to "/tournaments"
     end
   end
 
@@ -75,6 +85,9 @@ class TournamentsController < ApplicationController
   # DELETE /tournaments/1.json
   def destroy
     if current_user == @tournament.creator
+      Match.all.find_all{|match| match.tournament==@tournament}.each do |match|
+        match.destroy
+      end
       @tournament.destroy
       respond_to do |format|
         format.html { redirect_to tournaments_url, notice: 'Tournament was successfully destroyed.' }
@@ -89,21 +102,40 @@ class TournamentsController < ApplicationController
     if signed_in?
       @tournament = Tournament.find(params[:id])
       @tournament.participants << current_user
+      @tournament.participants.all.each do |member|
+        member.points = 0
+        member.save
+      end
+      Match.all.find_all{|match| match.tournament == @tournament}.each do |match|
+        match.destroy
+      end
       @tournament.save
       flash[:success] = "Vous êtes inscrit qu tournoi !"
-      redirect_to tournaments_path
+      redirect_to @tournament
     else
-      falsh[:error] = "Vous devez vous connecter pour vous inscrire au tournoi."
+      flash[:error] = "Vous devez vous connecter pour vous inscrire au tournoi."
       redirect_to login_path
     end
   end
 
   def unsuscribe
-    @tournament = Tournament.find(params[:id])
-    @tournament.participants.delete(current_user)
-    @tournament.save
-    flash[:success] = "Vous êtes désinscrit."
-    redirect_to tournaments_path
+    if signed_in?
+      @tournament = Tournament.find(params[:id])
+      @tournament.participants.all.each do |member|
+        member.points = 0
+        member.save
+      end
+      Match.all.find_all{|match| match.tournament == @tournament}.each do |match|
+        match.destroy
+      end
+      @tournament.participants.delete(current_user)
+      @tournament.save
+      flash[:success] = "Vous êtes désinscrit."
+      redirect_to @tournament
+    else
+      flash[:error] = "Vous devez vous connecter pour vous desinscrire au tournoi."
+      redirect_to login_path
+    end
   end
 
   private
