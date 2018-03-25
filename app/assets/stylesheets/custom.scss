@@ -15,6 +15,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'PressStart';
+  src: font-url('prstartk.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .new_tournament {
 padding-top: 10%;
 padding-bottom: 20%;
@@ -372,4 +379,8 @@ animation:rainbow 1.5s infinite;
     display: block;
     text-align: left;
   }
+}
+
+.bold-text {
+  font-family: 'PressStart';
 }
