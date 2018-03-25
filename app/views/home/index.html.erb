@@ -1,6 +1,6 @@
 <div class="navbar w-nav">
  	<div class="container-2 w-container"><%= image_tag "Ease-1.png", width: "86", class: "image" %></div>
- 	<%= link_to "Créer un tournois", new_tournament_path, class: "link-2 hvr-curl-bottom-right" %>
+ 	<%= link_to "Créer un tournois", new_tournament_path, class: "link-2 hvr-ripple-in" %>
  	<% if signed_in? %>
  	<div data-delay="300" class="dropdown w-clearfix w-dropdown">
  		<div class="dropdown-toggle w-dropdown-toggle">
@@ -13,9 +13,10 @@
  	 <%= link_to 'Connexion', sign_in_path, class: "link-sign-in hvr-ripple-in" %>
  	<% end %>
  </div>
- 	<h1 class="heading"><strong class="bold-text">EASE</strong></h1>
  	<div class="container w-container">
  		<div class="section-2">
+ 			<%= video_tag 'fond.mp4', id: 'myVideo', autoplay: :autoplay, loop: :loop %>
+ 			<h1 class="heading"><strong class="bold-text">EASE</strong></h1>
  			<div>
  				<div class="text-block-4">Crée tes compétitions</div>
  				<div class="text-block">Deviens un champion</div>
@@ -66,3 +67,17 @@
  		<div class="text-block-16">© Ease 2018</div>
  		<div class="text-block-17">Made with THP knowledge and <i class="em em-hearts"></i></div>
  	</div>
+ 	<script type="text/javascript">
+var duration = 2700;
+var duration2 = 2200;
+
+function bannerMoveDown(){
+$(".image-10").animate({top:'-=6px'}, duration, 'swing');
+$(".image-11").animate({top:'-=6px'}, duration2, 'swing', BannerMoveUp);
+}
+function bannerMoveUp(){
+$("#image-10").animate({top:'+=6px'}, duration2, 'swing');
+$("#image-11").animate({top:'+=6px'}, duration, 'swing', bannerMoveDown);
+}
+bannerMoveUp();
+</script>
