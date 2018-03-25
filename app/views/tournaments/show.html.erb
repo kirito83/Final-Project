@@ -43,13 +43,16 @@
 
  li.game.winner{
  	font-weight:bold;
+ 	color: orange;
  }
  li.game span{
  	float:right;
  	margin-right:5px;
  }
 
- li.game-top{ border-bottom:1px solid #000; }
+ li.game-top { 
+ 	border-bottom:1px solid #000; 
+ }
 
  li.game-spacer{ 
  	border-right:1px solid #000;
@@ -130,6 +133,9 @@
 						<li class="game game-bottom "><%= @team[@index] %></li>
 
 						<li class="spacer">&nbsp;</li>
+						<% if Match.find_by(joueur1: @team[@index-1], joueur2: @team[@index]).nil? %>
+						<% Match.create(joueur1: @team[@index-1], joueur2: @team[@index]) %>
+						<% end %>
 						<% @length -= 1 %>
 						<% @index += 1 %>
 						<% end %>
@@ -137,7 +143,11 @@
 						<li class="spacer">&nbsp;</li>
 
 						<li class="game game-top winner"><%= @team[@index] %></li>
-						<% @tournament.winners << @team[@index] %>
+						<% u = User.find_by(username: @team[@index]) %>
+						<% if u.points == 0 %>
+						<% u.points += 1 %>
+						<% u.save %>
+						<% end %>
 						<% @index += 1 %>
 						<li class="game game-spacer">&nbsp;</li>
 						<li class="game game-bottom">Casper</li>
@@ -146,41 +156,41 @@
 						<% end %>
 					</ul>
 					<% @rounds -= 1 %>
+					<% @points_necessaires = 1 %>
 					<% while (@rounds > 0) %>
 					<ul class="round">
 						<% @indice = 2**(@rounds-1) %>
-						<% unless @tournament.winners.nil? %>
-						<% while @indice > 0 %>
+						<% @test = 0 %>
+						<% @team.each do |user| %>
+						<% if User.find_by(username: user).points >= @points_necessaires %>
+						<% if @test % 2 == 0  %>
 						<li class="spacer">&nbsp;</li>
-
-						<% if @tournament.winners[2 * @indice - 1] %>
-						<li class="game game-top"><%= @tournament.winners[2 * @indice - 1] %></li>
+						<li class="game game-top"><%= user %></li>
+						<% @test += 1 %>
 						<% else %>
-						<li class="game game-top">undefined</li>
-						<% end %>
 						<li class="game game-spacer">&nbsp;</li>
-						<% if @tournament.winners[2 * @indice - 2] %>
-						<li class="game game-bottom "><%= @tournament.winners[2 * @indice - 2] %></li>
-						<% else %>
-						<li class="game game-top">undefined</li>
-						<% end %>
-
+						<li class="game game-bottom "><%= user %></li>
 						<li class="spacer">&nbsp;</li>
 						<% @indice -= 1 %>
+						<% @test += 1 %>
 						<% end %>
-						<% else %>
+						<% end %>
+						<% end %>
 						<% while @indice > 0 %>
+						<% if @test % 2 == 0  %>
 						<li class="spacer">&nbsp;</li>
-
 						<li class="game game-top">undefined</li>
+						<% @test += 1 %>
+						<% else %>
 						<li class="game game-spacer">&nbsp;</li>
 						<li class="game game-bottom ">undefined</li>
-
 						<li class="spacer">&nbsp;</li>
 						<% @indice -= 1 %>
+						<% @test += 1 %>
 						<% end %>
 						<% end %>
 					</ul>
+					<% @points_necessaires += 1 %>
 					<% @rounds -= 1 %>
 					<% end %>
 					<% else %>
@@ -226,6 +236,7 @@
 	<% if signed_in? && !(@tournament.participants.include?(current_user)) %>
 	<%= button_to 'Participer', suscribe_tournament_path(@tournament), method: :post, class: 'btn btn-primary' %>
 	<% elsif @tournament.participants.include?(current_user) %>
+	<%= button_to 'Voir mon prochain match' %>
 	<%= button_to 'Se desinscrire', unsuscribe_tournament_path(@tournament), method: :post, class: 'btn btn-danger' %>
 	<% end %>
 
