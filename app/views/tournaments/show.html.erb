@@ -49,15 +49,15 @@
  	margin-right:5px;
  }
 
- li.game-top{ border-bottom:1px solid #aaa; }
+ li.game-top{ border-bottom:1px solid #000; }
 
  li.game-spacer{ 
- 	border-right:1px solid #aaa;
+ 	border-right:1px solid #000;
  	min-height:40px;
  }
 
  li.game-bottom{ 
- 	border-top:1px solid #aaa;
+ 	border-top:1px solid #000;
  }
 
  .btn {
@@ -76,6 +76,14 @@
  }
  .link:hover {
  	color: white;
+ }
+
+ .btn-primary {
+ 	margin-left: 48%;
+ }
+
+ .btn-danger {
+ 	margin-left: 47%;
  }
 
 </style>
@@ -99,6 +107,7 @@
 			<hr>
 
 			<div class='infos'>
+				<p>Createur : <%=@tournament.creator.username %></p>
 				<p>Date : <%= @tournament.date %></p>
 				<p>Prix : <%= @tournament.pricepool %> euros</p>
 			</div>
@@ -115,7 +124,7 @@
 						<% while (@length - @base > 0) do %>
 						<li class="spacer">&nbsp;</li>
 
-						<li class="game game-top winner"><%= @team[@index] %></li>
+						<li class="game game-top"><%= @team[@index] %></li>
 						<% @index += 1 %>
 						<li class="game game-spacer">&nbsp;</li>
 						<li class="game game-bottom "><%= @team[@index] %></li>
@@ -128,6 +137,7 @@
 						<li class="spacer">&nbsp;</li>
 
 						<li class="game game-top winner"><%= @team[@index] %></li>
+						<% @tournament.winners << @team[@index] %>
 						<% @index += 1 %>
 						<li class="game game-spacer">&nbsp;</li>
 						<li class="game game-bottom">Casper</li>
@@ -139,6 +149,26 @@
 					<% while (@rounds > 0) %>
 					<ul class="round">
 						<% @indice = 2**(@rounds-1) %>
+						<% unless @tournament.winners.nil? %>
+						<% while @indice > 0 %>
+						<li class="spacer">&nbsp;</li>
+
+						<% if @tournament.winners[2 * @indice - 1] %>
+						<li class="game game-top"><%= @tournament.winners[2 * @indice - 1] %></li>
+						<% else %>
+						<li class="game game-top">undefined</li>
+						<% end %>
+						<li class="game game-spacer">&nbsp;</li>
+						<% if @tournament.winners[2 * @indice - 2] %>
+						<li class="game game-bottom "><%= @tournament.winners[2 * @indice - 2] %></li>
+						<% else %>
+						<li class="game game-top">undefined</li>
+						<% end %>
+
+						<li class="spacer">&nbsp;</li>
+						<% @indice -= 1 %>
+						<% end %>
+						<% else %>
 						<% while @indice > 0 %>
 						<li class="spacer">&nbsp;</li>
 
@@ -148,6 +178,7 @@
 
 						<li class="spacer">&nbsp;</li>
 						<% @indice -= 1 %>
+						<% end %>
 						<% end %>
 					</ul>
 					<% @rounds -= 1 %>
@@ -189,6 +220,14 @@
 			</div>
 		</div>
 	</div>
+
+	<br><br>
+
+	<% if signed_in? && !(@tournament.participants.include?(current_user)) %>
+	<%= button_to 'Participer', suscribe_tournament_path(@tournament), method: :post, class: 'btn btn-primary' %>
+	<% elsif @tournament.participants.include?(current_user) %>
+	<%= button_to 'Se desinscrire', unsuscribe_tournament_path(@tournament), method: :post, class: 'btn btn-danger' %>
+	<% end %>
 
 	<br><br>
 

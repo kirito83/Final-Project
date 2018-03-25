@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :matches
-  resources :tournaments
+  resources :tournaments do
+    post 'suscribe', on: :member
+    post 'unsuscribe', on: :member
+  end
   resources :products
   root to: 'home#index'
 

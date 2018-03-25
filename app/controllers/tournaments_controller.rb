@@ -39,6 +39,8 @@ class TournamentsController < ApplicationController
   # POST /tournaments.json
   def create
     @tournament = Tournament.new(tournament_params)
+    @tournament.creator = current_user
+    @tournament.winners = []
 
     respond_to do |format|
       if @tournament.save
@@ -68,11 +70,36 @@ class TournamentsController < ApplicationController
   # DELETE /tournaments/1
   # DELETE /tournaments/1.json
   def destroy
-    @tournament.destroy
-    respond_to do |format|
-      format.html { redirect_to tournaments_url, notice: 'Tournament was successfully destroyed.' }
-      format.json { head :no_content }
+    if current_user == @tournament.creator
+      @tournament.destroy
+      respond_to do |format|
+        format.html { redirect_to tournaments_url, notice: 'Tournament was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      flash.now[:error] = "Desole, vous n'etes pas le createur du tournoi."
     end
+  end
+
+  def suscribe
+    if signed_in?
+      @tournament = Tournament.find(params[:id])
+      @tournament.participants << current_user
+      @tournament.save
+      flash[:success] = "Vous êtes inscrit qu tournoi !"
+      redirect_to tournaments_path
+    else
+      falsh[:error] = "Vous devez vous connecter pour vous inscrire au tournoi."
+      redirect_to login_path
+    end
+  end
+
+  def unsuscribe
+    @tournament = Tournament.find(params[:id])
+    @tournament.participants.delete(current_user)
+    @tournament.save
+    flash[:success] = "Vous êtes désinscrit."
+    redirect_to tournaments_path
   end
 
   private
@@ -83,6 +110,6 @@ class TournamentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tournament_params
-      params.require(:tournament).permit(:title, :description, :date, :pricepool)
+      params.require(:tournament).permit(:title, :description, :date, :pricepool, :creator)
     end
-end
+  end
