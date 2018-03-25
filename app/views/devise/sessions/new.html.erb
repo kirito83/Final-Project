@@ -1,6 +1,6 @@
 <div class="navbar w-nav">
   <div class="container-2 w-container"><%= image_tag "Ease-1.png", width: "86", class: "image" %></div>
-  <%= link_to "Créer un tournois", new_tournament_path, class: "link-2custom hvr-ripple-in" %>
+  <%= link_to "Créer un tournoi", new_tournament_path, class: "link-2custom hvr-ripple-in" %>
   <% if signed_in? %>
   <div data-delay="300" class="dropdown w-clearfix w-dropdown">
     <div class="dropdown-toggle w-dropdown-toggle">
@@ -14,19 +14,23 @@
   <% end %>
  </div>
 
+
 <div class='signup'>
-  <h1>CONNEXION</h1>
+  <div class="title"> <h1>CONNEXION</h1> </div>
+
 
   <%= form_for(resource, as: resource_name, url: sign_in_path) do |f| %>
+  <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+      <%= f.email_field :email, class: 'form-control', placeholder: "Email" %>
+  </div> 
+  <br>
 
-    <%= f.label :email, class: 'label' %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label 'Mot de passe', class: 'label' %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+  <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+      <%= f.password_field :password, class: 'form-control', placeholder: "Mot de passe" %>
+    </div>
+    <br>
 
   <% if devise_mapping.rememberable? -%>
   <div class="field">
@@ -35,12 +39,17 @@
   </div>
   <% end -%>
 
-  <br>
+
+  <br><br>
 
   <div class="actions">
     <%= f.submit "Se connecter", class: 'btn' %>
   </div>
   <% end %>
+  <br>
+  <br>
 
-  <%= render "devise/shared/links" %>
+  <div class="links">
+    <%= render "devise/shared/links" %>
+  </div>
 </div>
