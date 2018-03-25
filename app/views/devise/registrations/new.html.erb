@@ -1,31 +1,50 @@
+<div class="navbar w-nav">
+  <div class="container-2 w-container"><%= image_tag "Ease-1.png", width: "86", class: "image" %></div>
+  <%= link_to "Créer un tournoi", new_tournament_path, class: "link-2custom hvr-ripple-in" %>
+  <% if signed_in? %>
+  <div data-delay="300" class="dropdown w-clearfix w-dropdown">
+    <div class="dropdown-toggle w-dropdown-toggle">
+      <div class="icon w-icon-dropdown-toggle"></div>
+      <div class="text-block-3">Mon compte</div>
+    </div>
+    <nav class="dropdown-list w-dropdown-list"><%= link_to 'Profil', show_path, class: "dropdown-link w-dropdown-link" %><a href="#" class="dropdown-link-3 w-dropdown-link">Mes tournois</a><%= link_to 'Déconnexion', sign_out_path, class: "dropdown-link-2 w-dropdown-link", method: :delete %></nav>
+  </div>
+  <% else %>
+   <%= link_to 'Connexion', sign_in_path, class: "link-sign-in hvr-ripple-in" %>
+  <% end %>
+ </div>
+
 <div class='signup'>
-  <h1>INSCRIPTION</h1>
+  <div class="title"> <h1>INSCRIPTION</h1> </div>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :username, class: 'label' %><br />
-    <%= f.text_field :username, autocomplete: "username" %>
+
+  <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <%= f.email_field :username, class: 'form-control', placeholder: "Nom d'utilisateur" %>
+  </div>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+      <%= f.email_field :email, class: 'form-control', placeholder: "Email" %>
+  </div>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+      <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: "Mot de passe (6 caractères minimum)"%>
+  </div>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: "Confirmation du mot de passe"%>
   </div>
 
-  <div class="field">
-    <%= f.label :email, class: 'label' %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
-  <div class="field">
-    <%= f.label 'Mot de passe', class: 'label' %>
-    <% if @minimum_password_length %>
-    <em class='label'>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label 'Confirmation', class: 'label' %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
 
   <br>
 
@@ -33,6 +52,8 @@
     <%= f.submit "S'inscrire", class: 'btn' %>
   </div>
   <% end %>
-
-  <%= render "devise/shared/links" %>
+  <br>
+  <div class="links">
+    <%= render "devise/shared/links" %>
+  </div>
 </div>
