@@ -156,7 +156,7 @@
 						<li class="spacer">&nbsp;</li>
 						
 						<% if @this_match.nil? %>
-						<% Match.create(joueur1: @team[@index-1], joueur2: @team[@index]) %>
+						<% Match.create(joueur1: @team[@index-1], joueur2: @team[@index], tournament: @tournament) %>
 						<% else %>
 						<% if !(@this_match.winner1.nil?) && (@this_match.winner1 == @this_match.winner2) %>
 						<% u = User.find_by(username: @this_match.winner1) %>
@@ -221,7 +221,7 @@
 
 						<% @this_match = Match.find_by(joueur1: @save, joueur2: user) %>
 						<% if @this_match.nil? %>
-						<% Match.create(joueur1: @save, joueur2: user) %>
+						<% Match.create(joueur1: @save, joueur2: user, tournament: @tournament) %>
 						<% else %>
 						<% if !(@this_match.winner1.nil?) && (@this_match.winner1 == @this_match.winner2) %>
 						<% u = User.find_by(username: @this_match.winner1) %>
