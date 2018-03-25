@@ -12,31 +12,36 @@
   </div>
   <% end %>
 
-  
+  <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+      <%= form.text_field :title, id: :tournament_title, class: 'form-control', placeholder: "Titre" %>
+  </div> 
 
-  <div class="field">
-    <%= form.label 'Titre', class: 'label' %><br>
-    <%= form.text_field :title, id: :tournament_title %>
-  </div>
+  <br>
 
-  <div class="field">
-    <%= form.label 'Déscription', class: 'label' %><br>
-    <%= form.text_area :description, id: :tournament_description %>
-  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+      <%= form.text_area :description, id: :tournament_description, class: 'form-control', placeholder: "Description" %>
+  </div> 
+
+  <br>
 
   <div class="field">
     <%= form.label :date, class: 'label' %><br>
     <%= form.datetime_select :date, id: :tournament_date %>
   </div>
 
-  <div class="field">
-    <%= form.label 'Prix', class: 'label' %><br>
-    <%= form.number_field :pricepool, id: :tournament_pricepool %>
-  </div>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-ruble"></i></span>
+      <%= form.number_field :pricepool, id: :tournament_pricepool, class: 'form-control', placeholder: "Prix d'entrée" %>
+  </div> 
 
   <br>
 
-  <div class="actions">
+  <div class="suce">
     <%= form.submit %>
   </div>
   <% end %>
