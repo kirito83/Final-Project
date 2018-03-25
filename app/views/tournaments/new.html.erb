@@ -15,11 +15,15 @@
  </div>
 
 <div class='signup'>
-	<div class="title"> <h1>Création tournoi</h1> </div>
+	<div class="title"> <h1>Création d'un tournoi</h1> </div>
 
 	<br>
 
 	<%= render 'form', tournament: @tournament %>
 
-	<%= link_to 'Retour', tournaments_path %>
+	<br>
+	
+	<div class="links">
+		<%= link_to 'Retour', tournaments_path %>
+	</div>
 </div>
