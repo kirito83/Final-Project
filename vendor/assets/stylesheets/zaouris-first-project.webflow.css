@@ -816,7 +816,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
 
 .link-4:hover {
   text-decoration: none;
-  color: #fff;
+  color: #D1D2A7;
+  text-shadow: 0 1px 4px black;
 }
 
 .link-5 {
