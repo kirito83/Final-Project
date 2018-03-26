@@ -447,3 +447,36 @@ animation:rainbow 1.5s infinite;
 }
 .ligne_tableau{
 }
+.btn_tableau1{
+  font-family: Montserrat, sans-serif;
+  font-size: 1.3em;
+  color: #ebeaea;
+  font-weight: 300;
+  text-align: center;
+  text-shadow: 0 1px 0 #272727;
+  background: green;
+  display: flex;
+  justify-content: center;
+}
+.btn_tableau2{
+  font-family: Montserrat, sans-serif;
+  font-size: 1.3em;
+  color: #ebeaea;
+  font-weight: 300;
+  text-align: center;
+  text-shadow: 0 1px 0 #272727;
+  background: rgba(213,71,52,1);
+  display: flex;
+  justify-content: center;
+}
+.btn_tableau3{
+  font-family: Montserrat, sans-serif;
+  font-size: 1.3em;
+  color: #ebeaea;
+  font-weight: 300;
+  text-align: center;
+  text-shadow: 0 1px 0 #272727;
+  background: red;
+  display: flex;
+  justify-content: center;
+}
