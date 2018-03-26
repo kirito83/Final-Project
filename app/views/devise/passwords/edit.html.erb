@@ -6,7 +6,7 @@
     <button onclick="myFunction()" class="dropbtn">Mon compte &#8964;</button>
     <div id="myDropdown" class="dropdown-content">
       <%= link_to 'Profil', show_path, class: "dropdown-link w-dropdown-link" %>
-      <a href="#" class="dropdown-link-3 w-dropdown-link">Mes tournois</a>
+      <%= link_to 'Liste des tournois', tournaments_path, class: "dropdown-link w-dropdown-link" %>
       <%= link_to 'Déconnexion', sign_out_path, class: "dropdown-link-2 w-dropdown-link", method: :delete %>
     </div>
   </div>
