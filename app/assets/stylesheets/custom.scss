@@ -39,7 +39,6 @@ background-size: 100%;
 padding-bottom: 50%;
 padding-left: 20%;
 padding-right: 20%;
-color: black;
 }
 
 th {
@@ -53,14 +52,13 @@ color: white;
 font-size: 14px;
 text-align: center;
 }
-
 .alert {
 position: absolute;
 width: 30%;
 padding: 8% 0;
 margin: 20% 35%;
 text-align: center;
-border-radius: 20px;
+border-radius: 50%;
 color: #d3d3d3;
 font-family: 'TopSecret';
 font-size: 22px;
@@ -100,7 +98,6 @@ text-decoration: underline;
 padding-left: 1%;
 padding-right: 1%;
 border: 1px solid white;
-color: black;
 }
 
 .tabs .header {
@@ -220,7 +217,7 @@ cursor: pointer;
 }
 
 #logo {
-  font-family: 'Matchmaker';
+  font-family: 'PressStart';
   font-size: 26px;
   padding-left: 2%;
   padding-right: 2%;
@@ -327,22 +324,22 @@ animation:rainbow 1.5s infinite;
     border-radius: 3px;
   }
   .sign_in:hover {
-    background-color: #bfbfbf;
-    color: #f9d000;
+    background-color: #232323;
+    color: #D1D2A7;
   }
   .sign_up {
     cursor: pointer;
     font-size: 13px;
     font-weight: bold;
-    background-color: #f06;
+    background-color: #E4433A;
     color: white;
     margin-left: 10px;
     padding: 1% 2%;
     border-radius: 3px;
   }
   .sign_up:hover {
-    background-color: #ff0087;
-    color: #f9d000;
+    background-color: fc352a;
+    color: #D1D2A7;
   }
   .dropdown-toggle {
     text-decoration: none;
@@ -386,6 +383,7 @@ animation:rainbow 1.5s infinite;
 }
 
 .signup {
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -394,36 +392,31 @@ animation:rainbow 1.5s infinite;
   margin-left: 20%;
 
 }
-
 .input-group{
   width: 60%;
   margin-left: 20%;
 }
-
 .title{
   display: flex;
   justify-content: center;
   font-size: 150%;
   padding-top: 5%;
-  color: white;
 }
+
 
 .field{
   margin-left: 20%;
 }
-
 .actions{
   display: flex;
   justify-content: center;
 }
-
 .links{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
 }
-
 .btn{
   font-family: Montserrat, sans-serif;
   font-size: 1.3em;
@@ -433,8 +426,6 @@ animation:rainbow 1.5s infinite;
   text-shadow: 0 1px 0 #272727;
   background: rgba(213,71,52,1);
   width: 30%;
-    display: flex;
-  justify-content: center;
 }
 
 
@@ -450,6 +441,8 @@ animation:rainbow 1.5s infinite;
 
 .dropbtn:hover{
     background-color: #232323;
+    color: #D1D2A7;
+    font-size: 16px;
     border: none;
 }
 
@@ -491,40 +484,4 @@ animation:rainbow 1.5s infinite;
   background: #222;
   width: 80%;
   margin-left: 10%;
-}
-
-.ligne_tableau{
-}
-.btn_tableau1{
-  font-family: Montserrat, sans-serif;
-  font-size: 1.3em;
-  color: #ebeaea;
-  font-weight: 300;
-  text-align: center;
-  text-shadow: 0 1px 0 #272727;
-  background: green;
-  display: flex;
-  justify-content: center;
-}
-.btn_tableau2{
-  font-family: Montserrat, sans-serif;
-  font-size: 1.3em;
-  color: #ebeaea;
-  font-weight: 300;
-  text-align: center;
-  text-shadow: 0 1px 0 #272727;
-  background: rgba(213,71,52,1);
-  display: flex;
-  justify-content: center;
-}
-.btn_tableau3{
-  font-family: Montserrat, sans-serif;
-  font-size: 1.3em;
-  color: #ebeaea;
-  font-weight: 300;
-  text-align: center;
-  text-shadow: 0 1px 0 #272727;
-  background: red;
-  display: flex;
-  justify-content: center;
 }

@@ -4,12 +4,9 @@
   </div>
   <div class="left-nav">
     <% if signed_in? %>
-    <%= link_to 'LISTE DES TOURNOIS', '/tournaments' %>
+    <%= link_to 'LISTE DES TOURNOIS', tournaments_path %>
     <%= link_to 'CREATION TOURNOI', new_tournament_path %>
     <% end %>
-    <a href="#news"><b>NEWS</b></a>
-    <a href="#contact"><b>CONTACT</b></a>
-    <a href="#about"><b>ABOUT</b></a>
   </div>
   <div class='end-nav'>
     <% if signed_in? %>
@@ -39,4 +36,5 @@ $(".topnav").hide();
   });
 
 });
+
 </script>
