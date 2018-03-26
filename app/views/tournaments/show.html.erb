@@ -128,9 +128,10 @@
 			<hr>
 
 			<div class='infos'>
-				<p>Createur : <%=@tournament.creator.username %></p>
+				<p>Createur : <%= @tournament.creator.username %></p>
 				<p>Date : <%= @tournament.date %></p>
 				<p>Prix : <%= @tournament.pricepool %> euros</p>
+				<p>Nombre de participants : <%= @tournament.participants.length %> / <%= @tournament.maxPlayers %> </p>
 			</div>
 			<div class='participants'>
 				<% @tournament.participants.each do |member| %>

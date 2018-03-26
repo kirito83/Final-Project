@@ -110,19 +110,24 @@ class TournamentsController < ApplicationController
   def suscribe
     if signed_in?
       @tournament = Tournament.find(params[:id])
-      @tournament.participants << current_user
-      @tournament.participants.all.each do |member|
-        member.points = 0
-        member.save
+      if @tournament.participants.length < @tournament.maxPlayers
+        @tournament.participants << current_user
+        @tournament.participants.all.each do |member|
+          member.points = 0
+          member.save
+        end
+        Match.all.find_all{|match| match.tournament == @tournament}.each do |match|
+          match.destroy
+        end
+        @tournament.save
+        flash[:success] = "Vous êtes inscrit qu tournoi !"
+        redirect_to @tournament
+      else
+        flash[:danger] = "Le nombre maximum de participants est atteint."
+        redirect_to @tournament
       end
-      Match.all.find_all{|match| match.tournament == @tournament}.each do |match|
-        match.destroy
-      end
-      @tournament.save
-      flash[:success] = "Vous êtes inscrit qu tournoi !"
-      redirect_to @tournament
     else
-      flash[:error] = "Vous devez vous connecter pour vous inscrire au tournoi."
+      flash[:danger] = "Vous devez vous connecter pour vous inscrire au tournoi."
       redirect_to login_path
     end
   end
@@ -155,6 +160,6 @@ class TournamentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tournament_params
-      params.require(:tournament).permit(:title, :description, :date, :pricepool, :creator, :game)
+      params.require(:tournament).permit(:title, :description, :date, :pricepool, :creator, :game, :maxPlayers)
     end
   end
