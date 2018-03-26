@@ -943,6 +943,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
   color: #6a6a6b;
 }
 
+.text-block-5 {
+  width: 25%;
+  text-align: center;
+}
+
+.text-block-7 {
+  padding-left: 2%;
+  padding-right: 2%;
+  width: 25%;
+  text-align: center;
+}
+
+.text-block-8 {
+  width: 25%;
+  text-align: center;
+}
+
 .div-block-3 {
   height: 1px;
   margin-right: 2%;
