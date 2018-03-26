@@ -98,4 +98,7 @@ Rails.application.configure do
           s3_host_name: ENV['S3_HOST_NAME']
         }
     }
+
+  config.action_mailer.delivery_method = :mailjet
+    
 end
