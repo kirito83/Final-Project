@@ -383,7 +383,7 @@ animation:rainbow 1.5s infinite;
 }
 
 .signup {
-  color: white;
+  color: black;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -401,6 +401,7 @@ animation:rainbow 1.5s infinite;
   justify-content: center;
   font-size: 150%;
   padding-top: 5%;
+  color: white;
 }
 
 
@@ -484,4 +485,7 @@ animation:rainbow 1.5s infinite;
   background: #222;
   width: 80%;
   margin-left: 10%;
+}
+.label{
+  font-size: 20px;
 }
