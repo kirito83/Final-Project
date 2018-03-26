@@ -124,6 +124,11 @@
   text-align: center;
 }
 
+.w-form a:hover {
+  text-decoration: none;
+  color: white;
+}
+
 .bold-text {
   position: static;
   display: inline-block;
