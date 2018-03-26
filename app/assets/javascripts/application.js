@@ -21,22 +21,33 @@
 $(document).on('turbolinks:load', function main() {
 	$('.bracket').hide();
 	$('.participants').hide();
+	$('.prix').hide();
 	$('.btn-bracket').on('click', function() {
 		$(this).toggleClass('active');
+		$('.prix').hide();
 		$('.infos').hide();
 		$('.participants').hide();
 		$('.bracket').slideToggle(1000);
 	});
 	$('.btn-infos').on('click', function() {
 		$(this).toggleClass('active');
+		$('.prix').hide();
 		$('.bracket').hide();
 		$('.participants').hide();
 		$('.infos').slideToggle(1000);
 	});
 	$('.btn-participants').on('click', function() {
 		$(this).toggleClass('active');
+		$('.prix').hide();
 		$('.bracket').hide();
 		$('.infos').hide();
 		$('.participants').slideToggle(1000);
+	});
+		$('.btn-prix').on('click', function() {
+		$(this).toggleClass('active');
+		$('.bracket').hide();
+		$('.infos').hide();
+		$('.participants').hide();
+		$('.prix').slideToggle(1000);
 	});
 });

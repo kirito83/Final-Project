@@ -70,6 +70,11 @@
  .btn:hover {
  	color: white;
  }
+ .btn-infos, .btn-participants, .btn-prix, .btn-bracket {
+ 	border: 1px solid #888;
+ 	margin-right: 1%;
+ 	margin-left: 1%;
+ }
 
  .link {
  	text-decoration: none;
@@ -138,7 +143,11 @@
 			<div class='infos'>
 				<p>Createur : <%= @tournament.creator.username %></p>
 				<p>Date : <%= @tournament.date %></p>
+				<% if @tournament.pricepool == 0 %>
+				<p>Prix : Gratuit </p>
+				<% else %>
 				<p>Prix : <%= @tournament.pricepool %> euros</p>
+				<% end %>
 				<p>Nombre de participants : <%= @tournament.participants.length %> / <%= @tournament.maxPlayers %> </p>
 			</div>
 			<div class='participants'>
@@ -148,10 +157,10 @@
 			</div>
 			<div class='prix'>
 				<% if @prix.length == 1 %>
-				<p>1er : <%= @prix[0] %></p>
+				<h2>1er : <%= @prix[0] %> euros</h2>
 				<% else %>
-				<p>1er : <%= @prix[0] %></p>
-				<p>2eme : <%= @prix[1] %></p>
+				<h2>1er : <%= @prix[0] %> euros</h2>
+				<h2>2eme : <%= @prix[1] %> euros</h2>
 				<% end %>
 			</div>
 			<div class='bracket'>
