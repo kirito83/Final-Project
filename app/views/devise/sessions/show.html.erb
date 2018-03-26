@@ -1,5 +1,5 @@
 <div class="navbar w-nav">
-	<div class="container-2 w-container"><%= link_to image_tag "Ease-1.png", root_path, width: "86", class: "image" %></div>
+	<div class="container-2 w-container"><%= link_to image_tag("Ease-1.png", width: "86", class: "image"), root_path %></div>
 	<%= link_to "Créer un tournois", new_tournament_path, class: "link-2custom hvr-ripple-in" %>
 	<% if signed_in? %>
 	<div class="dropdown">
