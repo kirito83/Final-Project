@@ -10,7 +10,8 @@ class User < ApplicationRecord
   :recoverable, :rememberable, :trackable, :validatable, 
   :omniauthable, omniauth_providers: %i[facebook]
    has_attached_file :photo,
-                       styles: { medium: "100x100>", thumb: "150x150>" }
+                       styles: { medium: "100x100>", thumb: "150x150>" },
+                       default_url: "/assets/missing.jpeg"
     validates_attachment :photo,
                         content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] },
                         size: { in: 0..5.megabytes },

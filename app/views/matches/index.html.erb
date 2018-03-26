@@ -1,3 +1,19 @@
+<div class="navbar w-nav">
+  <div class="container-2 w-container"><%= image_tag "Ease-1.png", width: "86", class: "image" %></div>
+  <%= link_to "Créer un tournois", new_tournament_path, class: "link-2custom hvr-ripple-in" %>
+  <% if signed_in? %>
+  <div class="dropdown">
+<button onclick="myFunction()" class="dropbtn">Mon compte &#8964;</button>
+  <div id="myDropdown" class="dropdown-content">
+    <%= link_to 'Profil', show_path, class: "dropdown-link w-dropdown-link" %>
+    <a href="#" class="dropdown-link-3 w-dropdown-link">Mes tournois</a>
+    <%= link_to 'Déconnexion', sign_out_path, class: "dropdown-link-2 w-dropdown-link", method: :delete %>
+  </div>
+</div>
+  <% else %>
+  <%= link_to 'Connexion', sign_in_path, class: "link-sign-in hvr-ripple-in" %>
+  <% end %>
+</div>
 <p id="notice"><%= notice %></p>
 
 <h1>Matches</h1>

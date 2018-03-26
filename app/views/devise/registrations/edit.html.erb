@@ -1,3 +1,19 @@
+<div class="navbar w-nav">
+  <div class="container-2 w-container"><%= link_to image_tag "Ease-1.png", root_path,  width: "86", class: "image" %></div>
+  <%= link_to "Créer un tournois", new_tournament_path, class: "link-2custom hvr-ripple-in" %>
+  <% if signed_in? %>
+  <div class="dropdown">
+<button onclick="myFunction()" class="dropbtn">Mon compte &#8964;</button>
+  <div id="myDropdown" class="dropdown-content">
+    <%= link_to 'Profil', show_path, class: "dropdown-link w-dropdown-link" %>
+    <a href="#" class="dropdown-link-3 w-dropdown-link">Mes tournois</a>
+    <%= link_to 'Déconnexion', sign_out_path, class: "dropdown-link-2 w-dropdown-link", method: :delete %>
+  </div>
+</div>
+  <% else %>
+  <%= link_to 'Connexion', sign_in_path, class: "link-sign-in hvr-ripple-in" %>
+  <% end %>
+</div>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
   <%= devise_error_messages! %>
 
@@ -7,113 +23,56 @@
     <%= f.file_field :photo %></div>
     <div class="section-11"></div>
     <div class="section-13">
-      <h2 class="heading-13">Vos détails</h2>
       <div>
         <ul class="unordered-list w-list-unstyled">
+          <li class="list-item">Username : <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <%= f.text_field :username, class: 'form-control edit', placeholder: "Nom d'utilisateur" %>
+  </div></li>
           <li class="list-item-8"></li>
-          <li class="list-item">Username : <%= f.text_field :username, autofocus: true, autocomplete: "username" %></li>
-          <li class="list-item-8"></li>
-          <li class="list-item">Email : <%= f.email_field :email, autofocus: true, autocomplete: "email" %></li>
+          <li class="list-item">Email :  <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+      <%= f.email_field :email, class: 'form-control edit', placeholder: "Email" %>
+  </div></li>
           <li class="list-item-6"></li>
-          <li class="list-item-2">Rue : <%= f.text_field :street, autofocus: true, autocomplete: "street" %></li>
+          <li class="list-item-2">Rue : <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-road"></i></span>
+      <%= f.text_field :street, class: 'form-control edit', placeholder: "Rue" %>
+  </div></li>
           <li class="list-item-5"></li>
         </ul>
       </div>
       <ul class="unordered-list-2 w-list-unstyled">
-        <li class="list-item-3">Ville : <%= f.text_field :city, autofocus: true, autocomplete: "city" %></li>
+        <li class="list-item-3">Ville : <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-tower"></i></span>
+      <%= f.text_field :city, class: 'form-control edit', placeholder: "Ville" %>
+  </div></li>
         <li class="list-item-7"></li>
-        <li class="list-item-4">Pays : <%= f.country_select :country %></li>
-        <li class="list-item-7"></li>
-        <li class="list-item-3">Description : <%= f.text_field :description, autofocus: true, autocomplete: "description" %></li>
+        <li class="list-item-4">Pays : <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-flag"></i></span>
+      <%= f.country_select :country, options = {}, html_options = {class: 'form-control edit'} %>
+  </div></li>
+        <li class="list-item-7"></li></li>
+        <li class="list-item-4">Nouveau mot de passe : <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+      <%= f.password_field :password, autocomplete: "off", class: 'form-control edit', placeholder: "Mot de passe (6 caractères minimum)"%>
+  </div></li>
         <li class="list-item-6"></li>
-        <li class="list-item-4">Mot de passe : <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %></li>
+        <li class="list-item-4">Confirmation : <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control edit', placeholder: "Confirmation du mot de passe"%>
+  </div></li>
     <li class="list-item-6"></li>
-    <li class="list-item-4">Confirmation : <%= f.password_field :password_confirmation, autocomplete: "off" %></li>
+    <li class="list-item-3">Description : <%= f.text_area :description, size: "60x10", autofocus: true, autocomplete: "description" %></li>
     <li class="list-item-6"></li>
-    <li class="list-item-4">Entrez votre mot de passe pour confirmer les changements : <%= f.password_field :current_password, autocomplete: "off" %></li>
+    <li class="list-item-4">Merci de saisir votre mot de passe actuel pour enregistrer les modifications <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+      <%= f.password_field :current_password, autocomplete: "off", class: 'form-control', placeholder: "Mot de passe actuel"%>
+  </div></li>
     <%= f.submit "Update" %>
       </ul>
       <% end %>
-      <h2 class="heading-14">Votre description</h2>
-      <div class="div-block-3"></div>
-      <div class="text-block-20">DESCRIPTION</div>
       Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
     </div>
-
-
-<h2>Edition <%= resource_name.to_s.humanize %></h2>
-
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :photo %><br>
-    <%= f.file_field :photo %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :street %><br />
-    <%= f.text_field :street, autofocus: true, autocomplete: "street" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city, autofocus: true, autocomplete: "city" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :country %><br>
-    <%= f.country_select :country %>
-  </div>
-  
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>

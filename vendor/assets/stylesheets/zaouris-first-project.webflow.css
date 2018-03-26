@@ -178,7 +178,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e64133', end
   display: block;
 padding: 1% 1.5%;
   margin-top: 0.5%;
-  margin-right: 14%;
+  margin-right: 15%;
   float: right;
   border-radius: 50px;
   box-shadow: 0 0 2px 1px #263a5b;
@@ -210,6 +210,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
 }
 
 .dropdown-toggle {
+  padding-top: 10%;
   float: right;
 }
 
@@ -222,7 +223,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
 }
 
 .icon {
-  margin-right: 15%;
   color: #fff;
 }
 
@@ -431,7 +431,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
   display: block;
 padding: 1% 1%;
   margin-top: 0.5%;
-  margin-right: 14%;
+  margin-right: 15%;
   float: right;
   border-radius: 50px;
   box-shadow: 0 0 2px 1px #263a5b;
@@ -448,6 +448,11 @@ background: -o-linear-gradient(-45deg, rgba(213,71,52,1) 0%, rgba(189,67,51,1) 7
 background: -ms-linear-gradient(-45deg, rgba(213,71,52,1) 0%, rgba(189,67,51,1) 75%, rgba(130,40,29,1) 81%, rgba(39,39,39,1) 87%, rgba(39,39,39,1) 100%);
 background: linear-gradient(135deg, rgba(213,71,52,1) 0%, rgba(189,67,51,1) 75%, rgba(130,40,29,1) 81%, rgba(39,39,39,1) 87%, rgba(39,39,39,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', endColorstr='#272727', GradientType=1 );
+}
+
+.link-2custom:hover {
+  text-decoration: none;
+  color: #D1D3A8;
 }
 
 .field-label-2 {
@@ -825,7 +830,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
   margin-right: 2%;
   margin-bottom: 0px;
   margin-left: 2%;
-  text-align: center;
 }
 
 .text-block-20 {
@@ -843,6 +847,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
   font-family: Lato, sans-serif;
   color: #f0f0f0;
   font-weight: 300;
+  display: flex;
+  justify-content: space-between;
 }
 
 .list-item-2 {
@@ -851,6 +857,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
   font-family: Lato, sans-serif;
   color: #f0f0f0;
   font-weight: 300;
+  display: flex;
+  justify-content: space-between;
 }
 
 .list-item-3 {
@@ -859,6 +867,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
   font-family: Lato, sans-serif;
   color: #f0f0f0;
   font-weight: 300;
+  display: flex;
+  justify-content: space-between;
 }
 
 .list-item-4 {
@@ -867,6 +877,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
   font-family: Lato, sans-serif;
   color: #f0f0f0;
   font-weight: 300;
+  display: flex;
+  justify-content: space-between;
 }
 
 .list-item-5 {
@@ -901,12 +913,32 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
 .unordered-list-2 {
   margin-right: 2%;
   margin-left: 2%;
-  text-align: center;
 }
 
 .user-photo {
   border-radius: 50%;
 }
+
+.aligned-attributes {
+  margin-right: 45%;
+  color: black;
+  font-weight: 400;
+}
+
+.aligned-attribute {
+  color: black;
+  font-weight: 400;
+}
+
+.aligned-attribute1 {
+  color: black;
+  font-weight: 400;
+}
+
+.edit {
+  width: 100px;
+}
+
 @media (max-width: 991px) {
   .navbar {
     background-color: #242424;

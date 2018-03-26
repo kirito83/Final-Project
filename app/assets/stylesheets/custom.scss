@@ -53,6 +53,7 @@ color: white;
 font-size: 14px;
 text-align: center;
 }
+
 .alert {
 position: absolute;
 width: 30%;
@@ -396,10 +397,12 @@ animation:rainbow 1.5s infinite;
   margin-left: 20%;
 
 }
+
 .input-group{
   width: 60%;
   margin-left: 20%;
 }
+
 .title{
   display: flex;
   justify-content: center;
@@ -408,20 +411,22 @@ animation:rainbow 1.5s infinite;
   color: white;
 }
 
-
 .field{
   margin-left: 20%;
 }
+
 .actions{
   display: flex;
   justify-content: center;
 }
+
 .links{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
 }
+
 .btn{
   font-family: Montserrat, sans-serif;
   font-size: 1.3em;
@@ -431,12 +436,57 @@ animation:rainbow 1.5s infinite;
   text-shadow: 0 1px 0 #272727;
   background: rgba(213,71,52,1);
   width: 30%;
-  display: flex;
+    display: flex;
   justify-content: center;
 }
+
+
+.dropbtn {
+    background-color: #232323;
+     font-family: Montserrat, sans-serif;
+     font-weight: 300;
+    color: white;
+    margin-top: 14px;
+    font-size: 15px;
+    border: none;
+}
+
+.dropbtn:hover{
+    background-color: #232323;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    border: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.show {display:block;}
+
+.dropbtn:focus {outline:0;}
+
 .tableau{
   color: white;
 }
+
 .liste_tournoi{
   display: flex;
   flex-direction: column;
@@ -445,6 +495,7 @@ animation:rainbow 1.5s infinite;
   width: 80%;
   margin-left: 10%;
 }
+
 .ligne_tableau{
 }
 .btn_tableau1{
