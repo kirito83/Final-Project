@@ -450,6 +450,11 @@ background: linear-gradient(135deg, rgba(213,71,52,1) 0%, rgba(189,67,51,1) 75%,
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', endColorstr='#272727', GradientType=1 );
 }
 
+.link-2custom:hover {
+  text-decoration: none;
+  color: #D1D3A8;
+}
+
 .field-label-2 {
   font-family: Montserrat, sans-serif;
   color: #fff;
