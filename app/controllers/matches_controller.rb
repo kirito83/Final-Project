@@ -26,11 +26,10 @@ class MatchesController < ApplicationController
   # POST /matches.json
   def create
     @match = Match.new(match_params)
-    @match.tournament = Tournament.find(params[:id])
 
     respond_to do |format|
       if @match.save
-        format.html { redirect_to @match, notice: 'Match was successfully created.' }
+        format.html { redirect_to @match.tournament, notice: 'Match was successfully created.' }
         format.json { render :show, status: :created, location: @match }
       else
         format.html { render :new }
@@ -44,7 +43,11 @@ class MatchesController < ApplicationController
   def update
     respond_to do |format|
       if @match.update(match_params)
-        format.html { redirect_to @match, notice: 'Match was successfully updated.' }
+        if @match.winner1 == @match.winner2 && !(@match.winner1.nil?)
+          @match.statut = false
+          @match.save
+        end
+        format.html { redirect_to @match.tournament, notice: 'Match was successfully updated.' }
         format.json { render :show, status: :ok, location: @match }
       else
         format.html { render :edit }
@@ -71,6 +74,6 @@ class MatchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def match_params
-      params.require(:match).permit(:winner1, :winner2)
+      params.require(:match).permit(:winner1, :winner2, :tournament)
     end
 end

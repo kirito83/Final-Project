@@ -217,7 +217,7 @@
 						<% if User.find_by(username: user).points >= @points_necessaires %>
 						<% if @test % 2 == 0  %>
 						<li class="spacer">&nbsp;</li>
-						<% if User.find_by(username: user).points > @points_necessaires %>
+						<% if User.find_by(username: user).points >= @points_necessaires %>
 						<li class="game game-top winner"><%= user %></li>
 						<% else %>
 						<li class="game game-top"><%= user %></li>
@@ -284,8 +284,6 @@
 	<% unless @match.nil? %>
 	<% if (current_user.username == @match.joueur1 && @match.winner1.nil?) || (current_user.username == @match.joueur2 && @match.winner2.nil?) %>
 	<%= link_to 'Voir mon prochain match', @match, class: 'btn btn-primary' %>
-	<% elsif Time.now >= @tournament.date %>
-	<p>Le tournoi a deja commence, trop tard :'(</p>
 	<% else %>
 	<p>Vous avez deja indique le nom du vainqueur, veuillez attendre la reponse de votre adversaire.</p>
 	<% end %>

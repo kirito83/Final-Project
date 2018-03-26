@@ -27,9 +27,9 @@ class TournamentsController < ApplicationController
     end
 
     Match.all.find_all{|match| match.tournament == @tournament}.each do |match|
-      if match.joueur1 == current_user.username && match.statut
+      if match.joueur1 == current_user.username && match.statut && !(match.joueur2.nil?)
         @match = match
-      elsif match.joueur2 == current_user.username && match.statut
+      elsif match.joueur2 == current_user.username && match.statut && !(match.joueur1.nil?)
         @match = match
       end
     end
