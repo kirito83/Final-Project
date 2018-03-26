@@ -23,6 +23,8 @@
   <div class="title"> <h1>Liste des tournois</h1> </div>
 
   <br><br><br>
+  <div class="title1"> <h1> Tournois à venir </h1> </div>
+  <br>
 
   <table class='table'>
     <thead>
@@ -38,12 +40,17 @@
 
     <tbody>
       <% @tournaments.each do |tournament| %>
+       <% if Time.now < tournament.date %>
       <tr class="ligne_tableau">
         <td class='tableau'><%= tournament.title %></td>
         <td class='tableau'><%= tournament.description %></td>
         <td class='tableau'><%= tournament.creator.username %></td>
         <td class='tableau'><%= tournament.date %></td>
+        <% if tournament.pricepool == 0%>
+        <td class='tableau'>Gratuit</td>
+        <% else %>
         <td class='tableau'><%= tournament.pricepool %> euros</td>
+        <% end %>
         <td class='tableau'><%= link_to 'Détails', tournament, class: 'btn_tableau1'  %></td>
         <% if current_user == tournament.creator %>
         <td><%= link_to 'Editer', edit_tournament_path(tournament), class: 'btn_tableau2'  %></td>
@@ -51,10 +58,52 @@
         <% end %>
       </tr>
       <% end %>
+      <% end %>
     </tbody>
   </table>
 
-  <br>
+  <br><br>
+
+    <div class="title1"> <h1> Tournois à passés </h1> </div>
+    <br>
+
+  <table class='table'>
+    <thead>
+      <tr>
+        <th class='tableau' scope='col'>Nom</th>
+        <th class='tableau' scope='col'>Description</th>
+        <th class='tableau' scope='col'>Créateur</th>
+        <th class='tableau' scope='col'>Date</th>
+        <th class='tableau' scope='col'>Prix d'entrée</th>
+        <th class='tableau' colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @tournaments.each do |tournament| %>
+      <% if Time.now >= tournament.date %>
+      <tr class="ligne_tableau">
+        <td class='tableau'><%= tournament.title %></td>
+        <td class='tableau'><%= tournament.description %></td>
+        <td class='tableau'><%= tournament.creator.username %></td>
+        <td class='tableau'><%= tournament.date %></td>
+        <% if tournament.pricepool == 0%>
+        <td class='tableau'>Gratuit</td>
+        <% else %>
+        <td class='tableau'><%= tournament.pricepool %> euros</td>
+        <% end %>
+        <td class='tableau'><%= link_to 'Détails', tournament, class: 'btn_tableau1'  %></td>
+        <% if current_user == tournament.creator %>
+        <td><%= link_to 'Editer', edit_tournament_path(tournament), class: 'btn_tableau2'  %></td>
+        <td><%= link_to 'Supprimer', tournament, method: :delete, data: { confirm: 'Etes vous sûr ?' }, class: 'btn_tableau3' %></td>
+        <% end %>
+      </tr>
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br><br>
 
   <div class="actions">
     <%= link_to 'Nouveau Tournoi', new_tournament_path, class: 'btn btn-submit' %>
