@@ -1,3 +1,4 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <div class="navbar w-nav">
 	<div class="container-2 w-container"><%= link_to image_tag("Ease-1.png", width: "86", class: "image"), root_path %></div>
 	<% if signed_in? %>
@@ -74,19 +75,16 @@
 	<div class="text-block-17">Made with THP knowledge and <i class="em em-hearts"></i></div>
 </div>
 <script type="text/javascript">
-
-	function bannerMoveDown(){
-		preventDefault();
-		$("#imagejeu1").animate({bottom:'-=6px'}, 2000, 'swing');
-		$("#imagejeu2").animate({bottom:'-=6px'}, 3000, 'swing', bannerMoveUp);
-	}
-	function bannerMoveUp(){
-		preventDefault();
-		$("#imagejeu1").animate({bottom:'+=6px'}, 3000, 'swing');
-		$("#imagejeu2").animate({bottom:'+=6px'}, 2000, 'swing', bannerMoveDown);
+	function loopDown(){
+		$('#imagejeu2').animate({ marginTop : 0}, 2500);
+		$("#imagejeu1").animate({ marginTop : 15 }, 3000, function() { loopUp(); });
 	}
 
-	bannerMoveDown();
+	function loopUp(){
+		$('#imagejeu2').animate({ marginTop : 15}, 3000);
+		$("#imagejeu1").animate({ marginTop : 0 }, 2500, function() { loopDown(); });
+	}
 
+	loopDown();
 
 </script>
