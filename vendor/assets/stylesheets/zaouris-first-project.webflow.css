@@ -343,7 +343,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  height: 10px;
+  height: 18px;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
