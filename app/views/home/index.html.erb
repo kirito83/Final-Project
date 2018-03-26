@@ -76,10 +76,12 @@
 <script type="text/javascript">
 
 	function bannerMoveDown(){
+		preventDefault();
 		$("#imagejeu1").animate({bottom:'-=6px'}, 2000, 'swing');
 		$("#imagejeu2").animate({bottom:'-=6px'}, 3000, 'swing', bannerMoveUp);
 	}
 	function bannerMoveUp(){
+		preventDefault();
 		$("#imagejeu1").animate({bottom:'+=6px'}, 3000, 'swing');
 		$("#imagejeu2").animate({bottom:'+=6px'}, 2000, 'swing', bannerMoveDown);
 	}
