@@ -280,7 +280,7 @@
 
 	<br><br>
 
-	<% if signed_in? && !(@tournament.participants.include?(current_user)) && @tournament.date < Time.now %>
+	<% if signed_in? && !(@tournament.participants.include?(current_user)) && @tournament.date >= Time.now %>
 	<%= button_to 'Participer', suscribe_tournament_path(@tournament), method: :post, class: 'btn btn-primary' %>
 	<% elsif @tournament.participants.include?(current_user) %>
 	<% unless @match.nil? %>
