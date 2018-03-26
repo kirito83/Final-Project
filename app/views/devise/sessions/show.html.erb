@@ -2,13 +2,14 @@
 	<div class="container-2 w-container"><%= image_tag "Ease-1.png", width: "86", class: "image" %></div>
 	<%= link_to "Créer un tournois", new_tournament_path, class: "link-2custom hvr-ripple-in" %>
 	<% if signed_in? %>
-	<div data-delay="300" class="dropdown w-clearfix w-dropdown">
-		<div class="dropdown-toggle w-dropdown-toggle">
-			<div class="icon w-icon-dropdown-toggle"></div>
-			<div class="text-block-3">Mon compte</div>
-		</div>
-		<nav class="dropdown-list w-dropdown-list"><%= link_to 'Profil', show_path, class: "dropdown-link w-dropdown-link" %><a href="#" class="dropdown-link-3 w-dropdown-link">Mes tournois</a><%= link_to 'Déconnexion', sign_out_path, class: "dropdown-link-2 w-dropdown-link", method: :delete %></nav>
-	</div>
+	<div class="dropdown">
+<button onclick="myFunction()" class="dropbtn">Mon compte &#8964;</button>
+  <div id="myDropdown" class="dropdown-content">
+    <%= link_to 'Profil', show_path, class: "dropdown-link w-dropdown-link" %>
+    <a href="#" class="dropdown-link-3 w-dropdown-link">Mes tournois</a>
+    <%= link_to 'Déconnexion', sign_out_path, class: "dropdown-link-2 w-dropdown-link", method: :delete %>
+  </div>
+</div>
 	<% else %>
 	<%= link_to 'Connexion', sign_in_path, class: "link-sign-in hvr-ripple-in" %>
 	<% end %>
@@ -23,18 +24,18 @@
 			<div>
 				<ul class="unordered-list w-list-unstyled">
 					<li class="list-item-8"></li>
-					<li class="list-item">Email : <%= current_user.email %></li>
+					<li class="list-item">Email : <span class="aligned-attributes"><%= current_user.email %></span></li>
 					<li class="list-item-6"></li>
-					<li class="list-item-2">Adresse : <%= current_user.street unless current_user.street.nil? %></li>
+					<li class="list-item-2">Adresse : <span class="aligned-attributes"><%= current_user.street unless current_user.street.nil? %></span></li>
 					<li class="list-item-5"></li>
 				</ul>
 			</div>
 			<ul class="unordered-list-2 w-list-unstyled">
-				<li class="list-item-3">Ville : <%= current_user.city unless current_user.city.nil? %></li>
+				<li class="list-item-3">Ville : <span class="aligned-attributes"><%= current_user.city unless current_user.city.nil? %></span></li>
 				<li class="list-item-7"></li>
-				<li class="list-item-4">Pays : <%= current_user.country unless current_user.country.nil? %></li>
+				<li class="list-item-4">Pays : <span class="aligned-attributes"><%= current_user.country unless current_user.country.nil? %></span></li>
 			</ul>
 			<h2 class="heading-14">Votre description</h2>
 			<div class="div-block-3"></div>
-			<div class="text-block-20">DESCRIPTION</div>
+			<div class="text-block-20"><%= current_user.description unless current_user.description.nil? %></div>
 		</div>
