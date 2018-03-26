@@ -21,4 +21,6 @@ Rails.application.routes.draw do
     get '/show', to: 'devise/sessions#show'
     get '/edit', to: 'devise/registrations#edit'
   end
+
+  get '/index/mail', to: 'home#send_email'
 end
