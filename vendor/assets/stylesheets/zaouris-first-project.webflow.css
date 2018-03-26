@@ -509,6 +509,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
   text-align: left;
 }
 
+.dropdown-link:hover {
+  color: #D1D2A7;
+  background-color: #232323;
+}
+
 .dropdown-link-2 {
   position: relative;
   overflow: visible;
@@ -517,6 +522,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
   font-size: 15px;
   font-weight: 500;
   text-align: left;
+}
+
+.dropdown-link-2:hover {
+  color: #D1D2A7;
+  background-color: #232323;
+}
+
+.dropdown-link-3:hover {
+  color: #D1D2A7;
+  background-color: #232323;
 }
 
 .dropdown-list {
@@ -532,6 +547,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
   margin-top: 30%;
   margin-left: 10%;
   background-color: #0c1d2b;
+}
+
+.dropdown-content {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .dropdown-link-3 {
