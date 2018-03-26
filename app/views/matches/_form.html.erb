@@ -11,24 +11,29 @@
     </div>
   <% end %>
 
-  <div class="input-group">
+  <div class="vainqueur">
     <%= form.label :Vainqueur, class: 'label' %>
     <% if current_user.username == @match.joueur1 %>
+    <div class="nom_joueur">
     <%= form.select(:winner1) do %>
       <% [[@match.joueur1, @match.joueur1], [@match.joueur2, @match.joueur2]].each do |c| -%>
         <%= content_tag(:option, c.first, value: c.last) %>
       <% end %>
     <% end %>
+  </div>
     <% else %>
+    <div class="nom_joueur">
     <%= form.select(:winner2) do %>
       <% [[@match.joueur1, @match.joueur1], [@match.joueur2, @match.joueur2]].each do |c| -%>
         <%= content_tag(:option, c.first, value: c.last) %>
       <% end %>
     <% end %>
+  </div>
     <% end %>
+    <br>
 
 
   <div class="actions">
-    <%= form.submit "Match termine" %>
+    <%= form.submit "Match terminé", class: 'btn' %>
   </div>
 <% end %>
