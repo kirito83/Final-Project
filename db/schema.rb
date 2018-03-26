@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180326004521) do
+ActiveRecord::Schema.define(version: 20180326005104) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20180326004521) do
     t.string "winners"
     t.integer "category_id"
     t.string "place"
+    t.integer "maxPlayers"
     t.index ["category_id"], name: "index_tournaments_on_category_id"
     t.index ["user_id"], name: "index_tournaments_on_user_id"
   end

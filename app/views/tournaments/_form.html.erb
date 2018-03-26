@@ -27,9 +27,23 @@
 
   <br>
 
+  <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+      <%= form.text_field :place, id: :tournament_place, class: 'form-control', placeholder: "Lieu" %>
+  </div> 
+
+  <br>
+
   <div class="field">
     <%= form.label :date, class: 'label' %><br>
     <%= form.datetime_select :date, id: :tournament_date %>
+  </div>
+
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-thumbs-up"></i></span>
+      <%= form.number_field :nbPlayers, id: :tournament_nbPlayers, class: 'form-control', placeholder: "Nombre maximum de personnes" %>
   </div>
 
   <br>
@@ -40,6 +54,7 @@
   </div> 
 
   <br>
+
   <div class="actions">
     <%= form.submit 'Sauvegarder le tournoi', :class => 'btn' %>
   </div>
