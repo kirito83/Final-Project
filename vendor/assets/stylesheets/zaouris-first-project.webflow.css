@@ -877,6 +877,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
   font-family: Lato, sans-serif;
   color: #232323;
   font-weight: 400;
+  overflow: scroll;
 }
 
 .list-item {
