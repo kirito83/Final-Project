@@ -33,7 +33,6 @@
  body{
  	font-family:sans-serif;
  	font-size:small;
- 	padding:10px;
  	line-height:1.4em;
  }
 
@@ -86,7 +85,7 @@
  	color: white;
  }
 
- h1, h2 {
+ h1, h2, h3 {
  	color: white;
  	text-align: center;
  }
@@ -96,18 +95,17 @@
 <body>
 <div class="navbar w-nav">
 	<div class="container-2 w-container"><%= link_to image_tag("Ease-1.png", width: "86", class: "image"), root_path %></div>
+	<%= link_to "Créer un tournoi", new_tournament_path, class: "link-2custom hvr-ripple-in" %>
 	<% if signed_in? %>
-	<%= link_to "Créer un tournoi", new_tournament_path, class: "link-2 hvr-ripple-in" %>
 	<div class="dropdown">
-		<button onclick="myFunction()" class="dropbtn">Mon compte &#8964;</button>
-		<div id="myDropdown" class="dropdown-content">
-			<%= link_to 'Profil', show_path, class: "dropdown-link w-dropdown-link" %>
-			<a href="#" class="dropdown-link-3 w-dropdown-link">Mes tournois</a>
-			<%= link_to 'Déconnexion', sign_out_path, class: "dropdown-link-2 w-dropdown-link", method: :delete %>
-		</div>
-	</div>
+<button onclick="myFunction()" class="dropbtn">Mon compte &#8964;</button>
+  <div id="myDropdown" class="dropdown-content">
+    <%= link_to 'Profil', show_path, class: "dropdown-link w-dropdown-link" %>
+    <a href="#" class="dropdown-link-3 w-dropdown-link">Mes tournois</a>
+    <%= link_to 'Déconnexion', sign_out_path, class: "dropdown-link-2 w-dropdown-link", method: :delete %>
+  </div>
+</div>
 	<% else %>
-	<%= link_to "Inscription", sign_up_path, class: "link-2 hvr-ripple-in" %>
 	<%= link_to 'Connexion', sign_in_path, class: "link-sign-in hvr-ripple-in" %>
 	<% end %>
 </div>
@@ -116,7 +114,7 @@
 
 		<h1><%= @tournament.title %></h1>
 
-		<h2 class='center'><%= @tournament.description %></h2>
+		<h3 class='center'><%= @tournament.description %></h3>
 
 		<br>
 
@@ -293,11 +291,14 @@
 	<% end %>
 	<% end %>
 	<% if Time.now < @tournament.date %>
-	<%= button_to 'Se desinscrire', unsuscribe_tournament_path(@tournament), method: :post, class: 'btn btn-danger' %>
+	<div class="actions">
+		<%= link_to 'Se desinscrire', unsuscribe_tournament_path(@tournament), method: :post, class: 'btn' %>
+	</div>
 	<% end %>
 	<% end %>
 
 	<br><br>
-
-	<%= link_to "Retour", '/tournaments', class: 'btn btn-link' %>
+	<div class="actions">
+		<%= link_to "Retour", '/tournaments', class: 'btn' %>
+	</div>
 </body>

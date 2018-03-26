@@ -19,13 +19,25 @@
 
   <br>
 
-
-  <div class="input-group">
+   <div class="input-group">
     <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
       <%= form.text_area :description, id: :tournament_description, class: 'form-control', placeholder: "Description" %>
   </div> 
 
+<br>
+
+  <div class="input-group">
+    <%= form.label :Jeu, class: 'label' %>
+    <%= form.select(:game) do %>
+      <% [['Hearthstone', 1], ['League of Legends', 2]].each do |c| -%>
+        <%= content_tag(:option, c.first, value: c.last) %>
+      <% end %>
+      <% {class: "dropdown_tag"} %>
+    <% end %>
+  </div>
+
   <br>
+
 
   <div class="input-group">
     <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
@@ -35,8 +47,8 @@
   <br>
 
   <div class="field">
-    <%= form.label :date, class: 'label' %><br>
-    <%= form.datetime_select :date, id: :tournament_date %>
+    <%= form.label :date, class: 'label' %>
+    <%= form.datetime_select :date, id: :tournament_date, class: "dropdown_tag" %>
   </div>
 
   <br>

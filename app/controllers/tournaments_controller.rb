@@ -51,6 +51,15 @@ class TournamentsController < ApplicationController
     @tournament.creator = current_user
     @tournament.winners = []
 
+    cc = Category.find_by(name: @tournament.game)
+    if cc.nil?
+      c = Category.new(name: @tournament.game)
+      c.save
+      @tournament.category = c
+    else
+      @tournament.category = cc
+    end
+
     respond_to do |format|
       if @tournament.save
         format.html { redirect_to @tournament, notice: 'Tournament was successfully created.' }
@@ -146,6 +155,6 @@ class TournamentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tournament_params
-      params.require(:tournament).permit(:title, :description, :date, :pricepool, :creator)
+      params.require(:tournament).permit(:title, :description, :date, :pricepool, :creator, :game)
     end
   end
