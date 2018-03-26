@@ -1,7 +1,7 @@
 <div class="navbar w-nav">
 	<div class="container-2 w-container"><%= link_to image_tag("Ease-1.png", width: "86", class: "image"), root_path %></div>
-	<%= link_to "Créer un tournoi", new_tournament_path, class: "link-2 hvr-ripple-in" %>
 	<% if signed_in? %>
+	<%= link_to "Créer un tournoi", new_tournament_path, class: "link-2 hvr-ripple-in" %>
 	<div class="dropdown">
 		<button onclick="myFunction()" class="dropbtn">Mon compte &#8964;</button>
 		<div id="myDropdown" class="dropdown-content">
@@ -11,6 +11,7 @@
 		</div>
 	</div>
 	<% else %>
+	<%= link_to "Inscription", sign_up_path, class: "link-2 hvr-ripple-in" %>
 	<%= link_to 'Connexion', sign_in_path, class: "link-sign-in hvr-ripple-in" %>
 	<% end %>
 </div>

@@ -22,6 +22,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'TopSecret';
+  src: font-url('TopSecret.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .new_tournament {
 padding-top: 10%;
 padding-bottom: 20%;
@@ -61,15 +68,16 @@ text-align: center;
 border-radius: 50%;
 color: #d3d3d3;
 font-family: 'TopSecret';
-font-size: 22px;
+font-size: 20px;
+box-shadow: 0 3px 20px #161616;
 }
 
 .alert-alert {
-background-image: radial-gradient(ellipse at center, #ff8989, #fc0000);
+background-image: radial-gradient(ellipse at center, #D3483A, #a3352c);
 }
 
 .alert-notice {
-background-image: radial-gradient(ellipse at center, #1990ff, #0048ff);
+background-image: radial-gradient(ellipse at center, #183a54, #0D1E2B);
 }
 
 .fade {
@@ -487,4 +495,40 @@ animation:rainbow 1.5s infinite;
   background: #222;
   width: 80%;
   margin-left: 10%;
+}
+
+.btn_tableau1{
+  font-family: Montserrat, sans-serif;
+  font-size: 1.3em;
+  color: #ebeaea;
+  font-weight: 300;
+  text-align: center;
+  text-shadow: 0 1px 0 #272727;
+  background: green;
+  display: flex;
+  justify-content: center;
+}
+
+.btn_tableau2{
+  font-family: Montserrat, sans-serif;
+  font-size: 1.3em;
+  color: #ebeaea;
+  font-weight: 300;
+  text-align: center;
+  text-shadow: 0 1px 0 #272727;
+  background: rgba(213,71,52,1);
+  display: flex;
+  justify-content: center;
+}
+
+.btn_tableau3{
+  font-family: Montserrat, sans-serif;
+  font-size: 1.3em;
+  color: #ebeaea;
+  font-weight: 300;
+  text-align: center;
+  text-shadow: 0 1px 0 #272727;
+  background: red;
+  display: flex;
+  justify-content: center;
 }
