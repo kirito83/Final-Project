@@ -81,9 +81,35 @@
  	color: white;
  }
 
+ p {
+ 	color: white;
+ }
+
+ h1, h2 {
+ 	color: white;
+ 	text-align: center;
+ }
+
 </style>
 </head>
 <body>
+	<div class="navbar w-nav">
+		<div class="container-2 w-container"><%= image_tag "Ease-1.png", width: "86", class: "image" %></div>
+		<%= link_to "Créer un tournoi", new_tournament_path, class: "link-2 hvr-ripple-in" %>
+		<% if signed_in? %>
+		<div data-delay="300" class="dropdown w-clearfix w-dropdown">
+			<div class="dropdown-toggle w-dropdown-toggle">
+				<div class="icon w-icon-dropdown-toggle"></div>
+				<div class="text-block-3">Mon compte</div>
+			</div>
+			<nav class="dropdown-list w-dropdown-list"><%= link_to 'Profil', show_path, class: "dropdown-link w-dropdown-link" %><a href="#" class="dropdown-link-3 w-dropdown-link">Mes tournois</a><%= link_to 'Déconnexion', sign_out_path, class: "dropdown-link-2 w-dropdown-link", method: :delete %></nav>
+		</div>
+		<% else %>
+		<%= link_to 'Connexion', sign_in_path, class: "link-sign-in hvr-ripple-in" %>
+		<% end %>
+	</div>
+
+	
 	<div class='tabs'>
 
 		<h1><%= @tournament.title %></h1>
@@ -114,23 +140,55 @@
 			<div class='bracket'>
 				<main id="tournament">
 					<% @index = 0 %>
-					<% if !([2, 4, 8, 16, 32].include?(@tournament.participants.length)) %>
+
 					<ul class='round'>
 						<% while (@length - @base > 0) do %>
+						
+						<% @this_match = Match.find_by(joueur1: @team[@index], joueur2: @team[@index+1]) %>
+						
 						<li class="spacer">&nbsp;</li>
 
+						<% unless @this_match.nil? %>
+						<% if !(@this_match.statut) && @this_match.winner1 == @team[@index] %>
+						<li class="game game-top winner"><%= @team[@index] %></li>
+						<% else %>
+						<li class="game game-top"><%= @team[@index] %></li>
+						<% end %>
+						<% @index += 1 %>
+
+						<li class="game game-spacer">&nbsp;</li>
+
+						<% if !(@this_match.statut) && @this_match.winner1 == @team[@index] %>
+						<li class="game game-bottom winner"><%= @team[@index] %></li>
+						<% else %>
+						<li class="game game-bottom"><%= @team[@index] %></li>
+						<% end %>
+						<% else %>
 						<li class="game game-top"><%= @team[@index] %></li>
 						<% @index += 1 %>
 						<li class="game game-spacer">&nbsp;</li>
-						<li class="game game-bottom "><%= @team[@index] %></li>
+						<li class="game game-bottom"><%= @team[@index] %></li>
+						<% end %>
 
 						<li class="spacer">&nbsp;</li>
-						<% if Match.find_by(joueur1: @team[@index-1], joueur2: @team[@index]).nil? %>
-						<% Match.create(joueur1: @team[@index-1], joueur2: @team[@index]) %>
+						
+						<% if @this_match.nil? %>
+						<% Match.create(joueur1: @team[@index-1], joueur2: @team[@index], tournament: @tournament) %>
+						<% else %>
+						<% if !(@this_match.winner1.nil?) && (@this_match.winner1 == @this_match.winner2) %>
+						<% u = User.find_by(username: @this_match.winner1) %>
+						<% if u.points == 0 %>
+						<% u.points += 1 %>
+						<% @this_match.statut = false %>
+						<% u.save %>
+						<% @this_match.save %>
+						<% end %>
+						<% end %>
 						<% end %>
 						<% @length -= 1 %>
 						<% @index += 1 %>
 						<% end %>
+
 						<% while @index < @tournament.participants.length %>
 						<li class="spacer">&nbsp;</li>
 
@@ -147,8 +205,10 @@
 						<li class="spacer">&nbsp;</li>
 						<% end %>
 					</ul>
+
 					<% @rounds -= 1 %>
 					<% @points_necessaires = 1 %>
+
 					<% while (@rounds > 0) %>
 					<ul class="round">
 						<% @indice = 2**(@rounds-1) %>
@@ -157,14 +217,40 @@
 						<% if User.find_by(username: user).points >= @points_necessaires %>
 						<% if @test % 2 == 0  %>
 						<li class="spacer">&nbsp;</li>
+						<% if User.find_by(username: user).points > @points_necessaires %>
+						<li class="game game-top winner"><%= user %></li>
+						<% else %>
 						<li class="game game-top"><%= user %></li>
+						<% end %>
+						<% @save = user %>
 						<% @test += 1 %>
 						<% else %>
 						<li class="game game-spacer">&nbsp;</li>
+
+						<% if User.find_by(username: user).points > @points_necessaires %>
+						<li class="game game-bottom winner"><%= user %></li>
+						<% else %>
 						<li class="game game-bottom "><%= user %></li>
+						<% end %>
 						<li class="spacer">&nbsp;</li>
 						<% @indice -= 1 %>
 						<% @test += 1 %>
+
+						<% @this_match = Match.find_by(joueur1: @save, joueur2: user) %>
+						<% if @this_match.nil? %>
+						<% Match.create(joueur1: @save, joueur2: user, tournament: @tournament) %>
+						<% else %>
+						<% if !(@this_match.winner1.nil?) && (@this_match.winner1 == @this_match.winner2) %>
+						<% u = User.find_by(username: @this_match.winner1) %>
+						<% if u.points == @points_necessaires %>
+						<% u.points += 1 %>
+						<% @this_match.statut = false %>
+						<% u.save %>
+						<% @this_match.save %>
+						<% end %>
+						<% end %>
+						<% end %>
+
 						<% end %>
 						<% end %>
 						<% end %>
@@ -185,39 +271,6 @@
 					<% @points_necessaires += 1 %>
 					<% @rounds -= 1 %>
 					<% end %>
-					<% else %>
-					<% while (@rounds > 0) do %>
-					<ul class="round">
-						<% @indice = @rounds %>
-						<% if @index == 0 %>
-						<% while @indice > 0 %>
-						<li class="spacer">&nbsp;</li>
-
-						<li class="game game-top"><%= @team[@index] %></li>
-						<li class="game game-spacer">&nbsp;</li>
-						<% @index += 1 %>
-						<li class="game game-bottom "><%= @team[@index] %></li>
-
-						<li class="spacer">&nbsp;</li>
-						<% @index += 1 %>
-						<% @indice -= 1 %>
-						<% end %>
-						<% else %>
-						<% while @indice > 0 %>
-						<li class="spacer">&nbsp;</li>
-
-						<li class="game game-top">undefined</li>
-						<li class="game game-spacer">&nbsp;</li>
-						<li class="game game-bottom ">undefined</li>
-
-						<li class="spacer">&nbsp;</li>
-						<% @indice -= 1 %>
-						<% end %>
-						<% end %>
-					</ul>
-					<% @rounds -= 1 %>
-					<% end %>
-					<% end %>
 				</main>
 			</div>
 		</div>
@@ -225,17 +278,21 @@
 
 	<br><br>
 
-	<% if signed_in? && !(@tournament.participants.include?(current_user)) %>
+	<% if signed_in? && !(@tournament.participants.include?(current_user)) && @tournament.date < Time.now %>
 	<%= button_to 'Participer', suscribe_tournament_path(@tournament), method: :post, class: 'btn btn-primary' %>
 	<% elsif @tournament.participants.include?(current_user) %>
 	<% unless @match.nil? %>
 	<% if (current_user.username == @match.joueur1 && @match.winner1.nil?) || (current_user.username == @match.joueur2 && @match.winner2.nil?) %>
 	<%= link_to 'Voir mon prochain match', @match, class: 'btn btn-primary' %>
+	<% elsif Time.now >= @tournament.date %>
+	<p>Le tournoi a deja commence, trop tard :'(</p>
 	<% else %>
 	<p>Vous avez deja indique le nom du vainqueur, veuillez attendre la reponse de votre adversaire.</p>
 	<% end %>
 	<% end %>
+	<% if Time.now < @tournament.date %>
 	<%= button_to 'Se desinscrire', unsuscribe_tournament_path(@tournament), method: :post, class: 'btn btn-danger' %>
+	<% end %>
 	<% end %>
 
 	<br><br>

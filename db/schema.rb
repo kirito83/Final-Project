@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180325203740) do
+ActiveRecord::Schema.define(version: 20180326004521) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "matches", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -19,6 +25,9 @@ ActiveRecord::Schema.define(version: 20180325203740) do
     t.string "winner2"
     t.string "joueur1"
     t.string "joueur2"
+    t.boolean "statut", default: true
+    t.integer "tournament_id"
+    t.index ["tournament_id"], name: "index_matches_on_tournament_id"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -65,6 +74,9 @@ ActiveRecord::Schema.define(version: 20180325203740) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.string "winners"
+    t.integer "category_id"
+    t.string "place"
+    t.index ["category_id"], name: "index_tournaments_on_category_id"
     t.index ["user_id"], name: "index_tournaments_on_user_id"
   end
 

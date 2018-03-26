@@ -39,6 +39,7 @@ background-size: 100%;
 padding-bottom: 50%;
 padding-left: 20%;
 padding-right: 20%;
+color: black;
 }
 
 th {
@@ -52,6 +53,7 @@ color: white;
 font-size: 14px;
 text-align: center;
 }
+
 .alert {
 position: absolute;
 width: 30%;
@@ -101,6 +103,7 @@ text-decoration: underline;
 padding-left: 1%;
 padding-right: 1%;
 border: 1px solid white;
+color: black;
 }
 
 .tabs .header {
@@ -386,7 +389,6 @@ animation:rainbow 1.5s infinite;
 }
 
 .signup {
-  color: white;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -395,31 +397,36 @@ animation:rainbow 1.5s infinite;
   margin-left: 20%;
 
 }
+
 .input-group{
   width: 60%;
   margin-left: 20%;
 }
+
 .title{
   display: flex;
   justify-content: center;
   font-size: 150%;
   padding-top: 5%;
+  color: white;
 }
-
 
 .field{
   margin-left: 20%;
 }
+
 .actions{
   display: flex;
   justify-content: center;
 }
+
 .links{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
 }
+
 .btn{
   font-family: Montserrat, sans-serif;
   font-size: 1.3em;
@@ -472,3 +479,23 @@ animation:rainbow 1.5s infinite;
 .show {display:block;}
 
 .dropbtn:focus {outline:0;}
+
+  display: flex;
+  justify-content: center;
+}
+
+.tableau{
+  color: white;
+}
+
+.liste_tournoi{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: #222;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.ligne_tableau{
+}

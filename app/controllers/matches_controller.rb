@@ -26,6 +26,7 @@ class MatchesController < ApplicationController
   # POST /matches.json
   def create
     @match = Match.new(match_params)
+    @match.tournament = Tournament.find(params[:id])
 
     respond_to do |format|
       if @match.save
