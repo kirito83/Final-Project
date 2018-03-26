@@ -43,10 +43,10 @@
         <td class='tableau'><%= tournament.creator.username %></td>
         <td class='tableau'><%= tournament.date %></td>
         <td class='tableau'><%= tournament.pricepool %> euros</td>
-        <td class='tableau'><%= link_to 'Voir', tournament, class: 'btn btn-info'  %></td>
+        <td class='tableau'><%= link_to 'Détails', tournament, class: 'btn_tableau1'  %></td>
         <% if current_user == tournament.creator %>
-        <td><%= link_to 'Editer', edit_tournament_path(tournament), class: 'btn btn-primary'  %></td>
-        <td><%= link_to 'Supprimer', tournament, method: :delete, data: { confirm: 'Etes vous sûr ?' }, class: 'btn btn-danger' %></td>
+        <td><%= link_to 'Editer', edit_tournament_path(tournament), class: 'btn_tableau2'  %></td>
+        <td><%= link_to 'Supprimer', tournament, method: :delete, data: { confirm: 'Etes vous sûr ?' }, class: 'btn_tableau3' %></td>
         <% end %>
       </tr>
       <% end %>
@@ -55,5 +55,7 @@
 
   <br>
 
-  <%= link_to 'Nouveau Tournoi', new_tournament_path, class: 'btn btn-submit' %>
+  <div class="actions">
+    <%= link_to 'Nouveau Tournoi', new_tournament_path, class: 'btn btn-submit' %>
+  </div>
 </div>
