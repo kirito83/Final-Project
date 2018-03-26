@@ -93,6 +93,23 @@
 </style>
 </head>
 <body>
+	<div class="navbar w-nav">
+		<div class="container-2 w-container"><%= image_tag "Ease-1.png", width: "86", class: "image" %></div>
+		<%= link_to "Créer un tournoi", new_tournament_path, class: "link-2 hvr-ripple-in" %>
+		<% if signed_in? %>
+		<div data-delay="300" class="dropdown w-clearfix w-dropdown">
+			<div class="dropdown-toggle w-dropdown-toggle">
+				<div class="icon w-icon-dropdown-toggle"></div>
+				<div class="text-block-3">Mon compte</div>
+			</div>
+			<nav class="dropdown-list w-dropdown-list"><%= link_to 'Profil', show_path, class: "dropdown-link w-dropdown-link" %><a href="#" class="dropdown-link-3 w-dropdown-link">Mes tournois</a><%= link_to 'Déconnexion', sign_out_path, class: "dropdown-link-2 w-dropdown-link", method: :delete %></nav>
+		</div>
+		<% else %>
+		<%= link_to 'Connexion', sign_in_path, class: "link-sign-in hvr-ripple-in" %>
+		<% end %>
+	</div>
+
+	
 	<div class='tabs'>
 
 		<h1><%= @tournament.title %></h1>
@@ -261,17 +278,21 @@
 
 	<br><br>
 
-	<% if signed_in? && !(@tournament.participants.include?(current_user)) %>
+	<% if signed_in? && !(@tournament.participants.include?(current_user)) && @tournament.date < Time.now %>
 	<%= button_to 'Participer', suscribe_tournament_path(@tournament), method: :post, class: 'btn btn-primary' %>
 	<% elsif @tournament.participants.include?(current_user) %>
 	<% unless @match.nil? %>
 	<% if (current_user.username == @match.joueur1 && @match.winner1.nil?) || (current_user.username == @match.joueur2 && @match.winner2.nil?) %>
 	<%= link_to 'Voir mon prochain match', @match, class: 'btn btn-primary' %>
+	<% elsif Time.now >= @tournament.date %>
+	<p>Le tournoi a deja commence, trop tard :'(</p>
 	<% else %>
 	<p>Vous avez deja indique le nom du vainqueur, veuillez attendre la reponse de votre adversaire.</p>
 	<% end %>
 	<% end %>
+	<% if Time.now < @tournament.date %>
 	<%= button_to 'Se desinscrire', unsuscribe_tournament_path(@tournament), method: :post, class: 'btn btn-danger' %>
+	<% end %>
 	<% end %>
 
 	<br><br>
