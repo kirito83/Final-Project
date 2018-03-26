@@ -291,11 +291,14 @@
 	<% end %>
 	<% end %>
 	<% if Time.now < @tournament.date %>
-	<%= button_to 'Se desinscrire', unsuscribe_tournament_path(@tournament), method: :post, class: 'btn btn-danger' %>
+	<div class="actions">
+		<%= link_to 'Se desinscrire', unsuscribe_tournament_path(@tournament), method: :post, class: 'btn' %>
+	</div>
 	<% end %>
 	<% end %>
 
 	<br><br>
-
-	<%= link_to "Retour", '/tournaments', class: 'btn btn-link' %>
+	<div class="actions">
+		<%= link_to "Retour", '/tournaments', class: 'btn' %>
+	</div>
 </body>
