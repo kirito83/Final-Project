@@ -36,8 +36,7 @@ class TournamentsController < ApplicationController
 
     @prix = []
     @bk = @length * @tournament.pricepool
-    @nb_payes = 1 / (@length + 1)
-    if @nb_payes == 1
+    if @length <= 10 && @length >= 0
       @prix << @bk
     else
       @prix << @bk * 70 / 100
@@ -45,8 +44,9 @@ class TournamentsController < ApplicationController
     end
 
     @tournament.participants.each do |member|
-      if member.points == @rounds && @rounds != 1
+      if member.points == @rounds && @rounds > 0
         @tournament.vainqueur = member.username
+        debugger
         @tournament.participants.each do |participant|
           participant.points = 0
         end
