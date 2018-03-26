@@ -33,7 +33,6 @@
  body{
  	font-family:sans-serif;
  	font-size:small;
- 	padding:10px;
  	line-height:1.4em;
  }
 
@@ -86,7 +85,7 @@
  	color: white;
  }
 
- h1, h2 {
+ h1, h2, h3 {
  	color: white;
  	text-align: center;
  }
@@ -96,7 +95,7 @@
 <body>
 <div class="navbar w-nav">
 	<div class="container-2 w-container"><%= link_to image_tag("Ease-1.png", width: "86", class: "image"), root_path %></div>
-	<%= link_to "Créer un tournois", new_tournament_path, class: "link-2custom hvr-ripple-in" %>
+	<%= link_to "Créer un tournoi", new_tournament_path, class: "link-2custom hvr-ripple-in" %>
 	<% if signed_in? %>
 	<div class="dropdown">
 <button onclick="myFunction()" class="dropbtn">Mon compte &#8964;</button>
@@ -115,7 +114,7 @@
 
 		<h1><%= @tournament.title %></h1>
 
-		<h2 class='center'><%= @tournament.description %></h2>
+		<h3 class='center'><%= @tournament.description %></h3>
 
 		<br>
 
