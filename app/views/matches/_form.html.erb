@@ -11,14 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label 'Vainqueur', class: 'label' %><br>
+  <div class="input-group">
+    <%= form.label :Vainqueur, class: 'label' %>
     <% if current_user.username == @match.joueur1 %>
-    <%= form.text_field :winner1, id: :match_winner1 %>
-    <% else %>
-    <%= form.text_field :winner2, id: :match_winner2 %>
+    <%= form.select(:winner1) do %>
+      <% [[@match.joueur1, @match.joueur1], [@match.joueur2, @match.joueur2]].each do |c| -%>
+        <%= content_tag(:option, c.first, value: c.last) %>
+      <% end %>
     <% end %>
-  </div>
+    <% else %>
+    <%= form.select(:winner2) do %>
+      <% [[@match.joueur1, @match.joueur1], [@match.joueur2, @match.joueur2]].each do |c| -%>
+        <%= content_tag(:option, c.first, value: c.last) %>
+      <% end %>
+    <% end %>
+    <% end %>
+
 
   <div class="actions">
     <%= form.submit "Match termine" %>

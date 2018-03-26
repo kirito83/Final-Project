@@ -280,18 +280,22 @@
 	<br><br>
 
 	<% if signed_in? && !(@tournament.participants.include?(current_user)) && @tournament.date >= Time.now %>
-	<%= button_to 'Participer', suscribe_tournament_path(@tournament), method: :post, class: 'btn btn-primary' %>
+	<div class="actions">
+		<%= link_to 'Participer', suscribe_tournament_path(@tournament), method: :post, class: 'btn btn-primary' %>
+	</div>
 	<% elsif @tournament.participants.include?(current_user) %>
 	<% unless @match.nil? %>
 	<% if (current_user.username == @match.joueur1 && @match.winner1.nil?) || (current_user.username == @match.joueur2 && @match.winner2.nil?) %>
-	<%= link_to 'Voir mon prochain match', @match, class: 'btn btn-primary' %>
+	<div class="actions">
+		<%= link_to 'Voir mon prochain match', @match, class: 'btn btn-primary' %>
+	</div>
 	<% else %>
 	<p>Vous avez deja indique le nom du vainqueur, veuillez attendre la reponse de votre adversaire.</p>
 	<% end %>
 	<% end %>
 	<% if Time.now < @tournament.date %>
 	<div class="actions">
-		<%= link_to 'Se desinscrire', unsuscribe_tournament_path(@tournament), method: :post, class: 'btn' %>
+		<%= link_to 'Se desinscrire', unsuscribe_tournament_path(@tournament), method: :post, class: 'btn btn-danger' %>
 	</div>
 	<% end %>
 	<% end %>
