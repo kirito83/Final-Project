@@ -45,7 +45,7 @@ class TournamentsController < ApplicationController
     end
 
     @tournament.participants.each do |member|
-      if member.points == @rounds
+      if member.points == @rounds && @rounds != 1
         @tournament.vainqueur = member.username
         @tournament.participants.each do |participant|
           participant.points = 0
