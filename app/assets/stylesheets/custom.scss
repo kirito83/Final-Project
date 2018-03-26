@@ -223,7 +223,7 @@ cursor: pointer;
 }
 
 #logo {
-  font-family: 'Matchmaker';
+  font-family: 'PressStart';
   font-size: 26px;
   padding-left: 2%;
   padding-right: 2%;
@@ -330,22 +330,22 @@ animation:rainbow 1.5s infinite;
     border-radius: 3px;
   }
   .sign_in:hover {
-    background-color: #bfbfbf;
-    color: #f9d000;
+    background-color: #232323;
+    color: #D1D2A7;
   }
   .sign_up {
     cursor: pointer;
     font-size: 13px;
     font-weight: bold;
-    background-color: #f06;
+    background-color: #E4433A;
     color: white;
     margin-left: 10px;
     padding: 1% 2%;
     border-radius: 3px;
   }
   .sign_up:hover {
-    background-color: #ff0087;
-    color: #f9d000;
+    background-color: fc352a;
+    color: #D1D2A7;
   }
   .dropdown-toggle {
     text-decoration: none;
