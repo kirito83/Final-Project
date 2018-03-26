@@ -33,6 +33,25 @@ class TournamentsController < ApplicationController
         @match = match
       end
     end
+
+    @prix = []
+    @bk = @length * @tournament.pricepool
+    @nb_payes = 1 / (@length + 1)
+    if @nb_payes == 1
+      @prix << @bk
+    else
+      @prix << @bk * 70 / 100
+      @prix << @bk * 30 / 100
+    end
+
+    @tournament.participants.each do |member|
+      if member.points == @rounds
+        @tournament.vainqueur = member.username
+        @tournament.participants.each do |participant|
+          participant.points = 0
+        end
+      end
+    end
   end
 
   # GET /tournaments/new

@@ -118,10 +118,18 @@
 
 		<br>
 
+		
+		<% if !(@tournament.vainqueur.nil?) %>
+		
+		<h1>Vainqueur : <%= @tournament.vainqueur %></h1>
+		
+		<% else %>
+
 		<div class='table'>
 			<div class='header'>
 				<h3 class='btn btn-infos'>Infos</h3>
 				<h3 class='btn btn-participants'>Participants</h3>
+				<h3 class='btn btn-prix'>Repartition des prix</h3>
 				<h3 class='btn btn-bracket'>Bracket</h3>
 			</div>
 
@@ -136,6 +144,14 @@
 			<div class='participants'>
 				<% @tournament.participants.each do |member| %>
 				<p><%= member.username %></p>
+				<% end %>
+			</div>
+			<div class='prix'>
+				<% if @prix.length == 1 %>
+				<p>1er : <%= @prix[0] %></p>
+				<% else %>
+				<p>1er : <%= @prix[0] %></p>
+				<p>2eme : <%= @prix[1] %></p>
 				<% end %>
 			</div>
 			<div class='bracket'>
@@ -300,7 +316,10 @@
 	<% end %>
 	<% end %>
 
+	<% end %>
+
 	<br><br>
+	
 	<div class="actions">
 		<%= link_to "Retour", '/tournaments', class: 'btn' %>
 	</div>
