@@ -436,7 +436,10 @@ animation:rainbow 1.5s infinite;
   text-shadow: 0 1px 0 #272727;
   background: rgba(213,71,52,1);
   width: 30%;
+    display: flex;
+  justify-content: center;
 }
+
 
 .dropbtn {
     background-color: #232323;
@@ -479,10 +482,6 @@ animation:rainbow 1.5s infinite;
 .show {display:block;}
 
 .dropbtn:focus {outline:0;}
-
-  display: flex;
-  justify-content: center;
-}
 
 .tableau{
   color: white;
