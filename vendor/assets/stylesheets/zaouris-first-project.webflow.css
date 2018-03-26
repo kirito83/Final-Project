@@ -806,12 +806,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
 }
 
 .link-4 {
-  margin-left: 1%;
+  margin-right: 24px;
   font-family: Montserrat, sans-serif;
   color: #fff;
   font-weight: 200;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+.link-4:hover {
+  text-decoration: none;
+  color: #fff;
 }
 
 .link-5 {
@@ -864,10 +869,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
 }
 
 .text-block-20 {
+  background-color: #c6c6c6;
+  border-radius: 3px;
   margin-right: 2%;
   margin-left: 2%;
+  padding: 1.5% 2%;
   font-family: Lato, sans-serif;
-  color: #d3d3d3;
+  color: #232323;
   font-weight: 400;
 }
 
@@ -952,18 +960,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
 
 .aligned-attributes {
   margin-right: 45%;
-  color: black;
+  color: #232323;
   font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .aligned-attribute {
-  color: black;
+  color: #232323;
   font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .aligned-attribute1 {
-  color: black;
+  color: #232323;
   font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .edit {
@@ -986,6 +997,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
   background-color: #20b229;
   border: 1px solid #20b229;
   box-shadow: 0 2px 8px black;
+  text-shadow: 1px 1px 3px #000000;
 }
 
 .submit-button {
@@ -1022,6 +1034,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
   background-color: #d13434;
   border: 1px solid #d13434;
   box-shadow: 0 2px 8px black;
+  text-shadow: 1px 1px 3px #000000;
 }
 
 .comeback-btn {
@@ -1030,10 +1043,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
 }
 
 .comeback {
-  background-color: #232323;
+  background-color: #353535;
   color: white;
   padding: 1% 4%;
-  border: 1px solid #232323;
+  border: 1px solid #353535;
   border-radius: 5px;
    box-shadow: 0 1px 2px black;
   font-family: 'Montserrat', sans-serif;
@@ -1042,10 +1055,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d54734', end
 
 .comeback:hover {
   color: white;
-  background-color: #3f3f3f;
-  border: 1px solid #3f3f3f;
+  background-color: #232323;
+  border: 1px solid #232323;
   box-shadow: 0 2px 8px black;
   text-decoration: none;
+  text-shadow: 1px 1px 3px #000000;
+}
+
+.edition {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.descri {
+  color: #232323;
+  font-family: 'Montserrat', sans-serif;
 }
 
 @media (max-width: 991px) {

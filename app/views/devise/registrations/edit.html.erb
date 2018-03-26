@@ -64,11 +64,11 @@
       <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control edit', placeholder: "Confirmation du mot de passe"%>
   </div></li>
     <li class="list-item-6"></li>
-    <li class="list-item-3">Description : <%= f.text_area :description, size: "60x10", autofocus: true, autocomplete: "description" %></li>
+    <li class="list-item-3">Description : <%= f.text_area :description, size: "74x7", class: 'descri' %></li>
     <li class="list-item-6"></li>
     <li class="list-item-4">Merci de saisir votre mot de passe actuel pour enregistrer les modifications <div class="input-group">
     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-      <%= f.password_field :current_password, autocomplete: "off", class: 'form-control', placeholder: "Mot de passe actuel"%>
+      <%= f.password_field :current_password, autocomplete: "off", class: 'form-control edit', placeholder: "Mot de passe actuel"%>
   </div></li>
       </ul>
       <div class="submit-button">
