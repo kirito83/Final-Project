@@ -76,12 +76,12 @@
 </div>
 <script type="text/javascript">
 	function loopDown(){
-		$('#imagejeu2').animate({ marginTop : 0}, 4000);
-		$("#imagejeu1").animate({ marginTop : 15 }, 4000, function() { loopUp(); });
+		$('#imagejeu2').animate({ marginTop : -20}, 4000);
+		$("#imagejeu1").animate({ marginTop : 20 }, 4000, function() { loopUp(); });
 	}
 
 	function loopUp(){
-		$('#imagejeu2').animate({ marginTop : 15}, 4000);
+		$('#imagejeu2').animate({ marginTop : 0}, 4000);
 		$("#imagejeu1").animate({ marginTop : 0 }, 4000, function() { loopDown(); });
 	}
 
